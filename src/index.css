@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
 
 .navbar a {
   border-radius: 3px;
@@ -10,13 +13,42 @@
 
 .menu-horizontal > li .active,
 .dropdown-content > li .active {
-  background-color: #363062 !important;
-  color: #fff !important;
+  background-color: transparent !important;
+  color: #f76b6a !important;
 }
 
 .navbar a:hover {
-  background-color: #363062 !important;
-  color: white !important;
+  background-color: transparent !important;
+  color: #f76b6a !important;
   outline: none;
   outline-offset: 0;
+}
+
+/* swiper js  */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
 }
