@@ -72,11 +72,8 @@ const Banner = () => {
       }}
       className="home-banner bg-center bg-no-repeat bg-cover"
     >
-      <div className="container ps-0 lg:ps-20 mx-auto min-h-[600px] relative z-50 flex justify-center py-8 lg:py-0 lg:justify-between items-center flex-col lg:flex-row">
-        <div
-          data-aos="fade-right"
-          className="w-full lg:w-[600px] px-5 xl:px-0 text-center lg:text-start"
-        >
+      <div className="2xl:px-56 xl:px-48 md:px-10 sm:px-2 px-5 mx-auto min-h-[600px] relative z-50 flex justify-center py-8 lg:py-0 lg:justify-between items-center flex-col lg:flex-row">
+        <div className="w-full lg:w-[600px] px-5 xl:px-0 text-center lg:text-start">
           <p className="text-base lg:text-lg text-[#333] uppercase font-semibold tracking-widest">
             {curentinfo.description}
           </p>
@@ -89,7 +86,7 @@ const Banner = () => {
               <Button text={"Shop Now"}></Button>
             </Link>
           </div>
-          <div className="absolute top-1/2 z-50 left-0  lg:-left-12 -translate-y-1/2">
+          <div className="absolute top-1/2 z-50 left-0  lg:left-4 -translate-y-1/2">
             <button
               className="text-[#f76b6a] text-3xl"
               onClick={handlePrevClick}
@@ -97,7 +94,7 @@ const Banner = () => {
               <FaAngleLeft />
             </button>
           </div>
-          <div className="absolute top-1/2 z-50 right-0  lg:-right-12 -translate-y-1/2">
+          <div className="absolute top-1/2 z-50 right-0  lg:right-4 -translate-y-1/2">
             <button
               className="text-[#f76b6a]  text-3xl"
               onClick={handleNextClick}
