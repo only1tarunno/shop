@@ -2,7 +2,7 @@
 const Button = ({ text }) => {
   return (
     <>
-      <button className="btn bg-[#BB9CC0] border-[#BB9CC0] rounded  hover:bg-[#4c5161] hover:border-[#4c5161] text-white font-medium uppercase">
+      <button className="btn bg-[#f76b6a] border-[#f76b6a] px-8 rounded  hover:bg-[#4c5161] hover:border-[#4c5161] text-white font-medium uppercase">
         {text}
       </button>
     </>
