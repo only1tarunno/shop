@@ -23,3 +23,14 @@ body {
   outline: none;
   outline-offset: 0;
 }
+
+.testimonialcard {
+  background: linear-gradient(
+    180deg,
+    rgba(248, 248, 248, 1) 50%,
+    rgba(255, 255, 255, 1) 50%
+  );
+}
+.testimonialcard img {
+  border-radius: 30px 9px 60px 30px;
+}

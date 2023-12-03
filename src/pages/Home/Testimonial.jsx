@@ -1,3 +1,4 @@
+import { FaStar } from "react-icons/fa6";
 import Container from "../../components/shared/Container";
 
 const Testimonial = () => {
@@ -21,6 +22,23 @@ const Testimonial = () => {
             <h2 className="text-[200px] font-bold text-[#70798B50] leading-[175px]">
               4.8
             </h2>
+            <div className="flex items-center justify-center text-3xl text-[#f76b6a] gap-1">
+              <span>
+                <FaStar />
+              </span>
+              <span>
+                <FaStar />
+              </span>
+              <span>
+                <FaStar />
+              </span>
+              <span>
+                <FaStar />
+              </span>
+              <span>
+                <FaStar />
+              </span>
+            </div>
             <p className="font-bold text-[#70798B] text-3xl">
               Average Customer Rating
             </p>
