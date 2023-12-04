@@ -5,8 +5,8 @@
     "title": "Simple T-Shirt",
     "price": 49.99,
     "sku": "SKU12345",
-    "tags": ["Bag", "black", "jacket", "men", "green"],
-    "categories": "tShirts",
+    "tags": ["Bag", "black"],
+    "categories": "T-Shirts",
     "availability_count": 100,
     "description": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.\n\n Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, comic book artists, graffiti artists, and now—anyone who arranges words, letters, numbers, and symbols for publication, display, or distribution—from clerical workers and newsletter writers to anyone self-publishing materials.\n\n Until the Digital Age, typography was a specialized occupation. Digitization opened up typography to new generations of previously unrelated designers and lay users, and David Jury, head of graphic design at Colchester Institute in England, states that “typography is now something everybody does. As the capability to create typography has become ubiquitous, the application of principles and best practices developed over generations of skilled workers and professionals has diminished. Ironically, at a time when scientific techniques."
   },
@@ -16,7 +16,7 @@
     "title": "Hooded Anorak",
     "price": 69.99,
     "sku": "SKU12348",
-    "tags": ["Bag", "black", "jacket", "men", "green"],
+    "tags": ["Bag", "men", "green"],
     "categories": "jackets",
     "availability_count": 150,
     "description": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.\n\n Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, comic book artists, graffiti artists, and now—anyone who arranges words, letters, numbers, and symbols for publication, display, or distribution—from clerical workers and newsletter writers to anyone self-publishing materials.\n\n Until the Digital Age, typography was a specialized occupation. Digitization opened up typography to new generations of previously unrelated designers and lay users, and David Jury, head of graphic design at Colchester Institute in England, states that “typography is now something everybody does. As the capability to create typography has become ubiquitous, the application of principles and best practices developed over generations of skilled workers and professionals has diminished. Ironically, at a time when scientific techniques."
@@ -27,7 +27,7 @@
     "title": "Mint Long Sleeve",
     "price": 39.99,
     "sku": "SKU12789",
-    "tags": ["Bag", "black", "jacket", "men", "green"],
+    "tags": ["Bag", "men", "green"],
     "categories": "jackets",
     "availability_count": 150,
     "description": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.\n\n Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, comic book artists, graffiti artists, and now—anyone who arranges words, letters, numbers, and symbols for publication, display, or distribution—from clerical workers and newsletter writers to anyone self-publishing materials.\n\n Until the Digital Age, typography was a specialized occupation. Digitization opened up typography to new generations of previously unrelated designers and lay users, and David Jury, head of graphic design at Colchester Institute in England, states that “typography is now something everybody does. As the capability to create typography has become ubiquitous, the application of principles and best practices developed over generations of skilled workers and professionals has diminished. Ironically, at a time when scientific techniques."
@@ -38,7 +38,7 @@
     "title": "Colorful Jacket",
     "price": 169.99,
     "sku": "SKU17834",
-    "tags": ["Bag", "black", "jacket", "men", "green"],
+    "tags": ["Bag", "men", "green"],
     "categories": "jackets",
     "availability_count": 150,
     "description": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.\n\n Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, comic book artists, graffiti artists, and now—anyone who arranges words, letters, numbers, and symbols for publication, display, or distribution—from clerical workers and newsletter writers to anyone self-publishing materials.\n\n Until the Digital Age, typography was a specialized occupation. Digitization opened up typography to new generations of previously unrelated designers and lay users, and David Jury, head of graphic design at Colchester Institute in England, states that “typography is now something everybody does. As the capability to create typography has become ubiquitous, the application of principles and best practices developed over generations of skilled workers and professionals has diminished. Ironically, at a time when scientific techniques."
@@ -49,8 +49,8 @@
     "title": "Gray T-Shirt",
     "price": 25.99,
     "sku": "SKU84563",
-    "tags": ["Bag", "black", "jacket", "men", "green"],
-    "categories": "tShirts",
+    "tags": ["jacket", "men", "green"],
+    "categories": "T-Shirts",
     "availability_count": 150,
     "description": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.\n\n Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, comic book artists, graffiti artists, and now—anyone who arranges words, letters, numbers, and symbols for publication, display, or distribution—from clerical workers and newsletter writers to anyone self-publishing materials.\n\n Until the Digital Age, typography was a specialized occupation. Digitization opened up typography to new generations of previously unrelated designers and lay users, and David Jury, head of graphic design at Colchester Institute in England, states that “typography is now something everybody does. As the capability to create typography has become ubiquitous, the application of principles and best practices developed over generations of skilled workers and professionals has diminished. Ironically, at a time when scientific techniques."
   },
@@ -60,8 +60,8 @@
     "title": "Pull Classic",
     "price": 29.99,
     "sku": "SKU84343",
-    "tags": ["Bag", "black", "jacket", "men", "green"],
-    "categories": "tShirts",
+    "tags": ["jacket", "men", "green"],
+    "categories": "T-Shirts",
     "availability_count": 150,
     "description": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.\n\n Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, comic book artists, graffiti artists, and now—anyone who arranges words, letters, numbers, and symbols for publication, display, or distribution—from clerical workers and newsletter writers to anyone self-publishing materials.\n\n Until the Digital Age, typography was a specialized occupation. Digitization opened up typography to new generations of previously unrelated designers and lay users, and David Jury, head of graphic design at Colchester Institute in England, states that “typography is now something everybody does. As the capability to create typography has become ubiquitous, the application of principles and best practices developed over generations of skilled workers and professionals has diminished. Ironically, at a time when scientific techniques."
   },
@@ -71,7 +71,7 @@
     "title": "Jeans For Men",
     "price": 59.99,
     "sku": "SKU34343",
-    "tags": ["Bag", "black", "jacket", "men", "green"],
+    "tags": ["jacket", "men", "green"],
     "categories": "jeans",
     "availability_count": 150,
     "description": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.\n\n Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, comic book artists, graffiti artists, and now—anyone who arranges words, letters, numbers, and symbols for publication, display, or distribution—from clerical workers and newsletter writers to anyone self-publishing materials.\n\n Until the Digital Age, typography was a specialized occupation. Digitization opened up typography to new generations of previously unrelated designers and lay users, and David Jury, head of graphic design at Colchester Institute in England, states that “typography is now something everybody does. As the capability to create typography has become ubiquitous, the application of principles and best practices developed over generations of skilled workers and professionals has diminished. Ironically, at a time when scientific techniques."
@@ -82,8 +82,8 @@
     "title": "Lightly Fertiti",
     "price": 36.99,
     "sku": "SKU34391",
-    "tags": ["Bag", "black", "jacket", "men", "green"],
-    "categories": "womens",
+    "tags": ["Bag", "black", "green"],
+    "categories": "T-Shirts",
     "availability_count": 150,
     "description": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.\n\n Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, comic book artists, graffiti artists, and now—anyone who arranges words, letters, numbers, and symbols for publication, display, or distribution—from clerical workers and newsletter writers to anyone self-publishing materials.\n\n Until the Digital Age, typography was a specialized occupation. Digitization opened up typography to new generations of previously unrelated designers and lay users, and David Jury, head of graphic design at Colchester Institute in England, states that “typography is now something everybody does. As the capability to create typography has become ubiquitous, the application of principles and best practices developed over generations of skilled workers and professionals has diminished. Ironically, at a time when scientific techniques."
   },
@@ -93,7 +93,7 @@
     "title": "Tiny Paws",
     "price": 136.99,
     "sku": "SKU75612",
-    "tags": ["Bag", "black", "jacket", "men", "green"],
+    "tags": ["Bag", "black", "green"],
     "categories": "shoes",
     "availability_count": 150,
     "description": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.\n\n Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, comic book artists, graffiti artists, and now—anyone who arranges words, letters, numbers, and symbols for publication, display, or distribution—from clerical workers and newsletter writers to anyone self-publishing materials.\n\n Until the Digital Age, typography was a specialized occupation. Digitization opened up typography to new generations of previously unrelated designers and lay users, and David Jury, head of graphic design at Colchester Institute in England, states that “typography is now something everybody does. As the capability to create typography has become ubiquitous, the application of principles and best practices developed over generations of skilled workers and professionals has diminished. Ironically, at a time when scientific techniques."
@@ -104,7 +104,7 @@
     "title": "Ophidia",
     "price": 89.99,
     "sku": "SKU75012",
-    "tags": ["Bag", "black", "jacket", "men", "green"],
+    "tags": ["Bag", "black", "green"],
     "categories": "bags",
     "availability_count": 150,
     "description": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.\n\n Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, comic book artists, graffiti artists, and now—anyone who arranges words, letters, numbers, and symbols for publication, display, or distribution—from clerical workers and newsletter writers to anyone self-publishing materials.\n\n Until the Digital Age, typography was a specialized occupation. Digitization opened up typography to new generations of previously unrelated designers and lay users, and David Jury, head of graphic design at Colchester Institute in England, states that “typography is now something everybody does. As the capability to create typography has become ubiquitous, the application of principles and best practices developed over generations of skilled workers and professionals has diminished. Ironically, at a time when scientific techniques."
@@ -115,8 +115,8 @@
     "title": "Romantic Lipstick",
     "price": 49.99,
     "sku": "SKU75732",
-    "tags": ["Bag", "black", "jacket", "men", "green"],
-    "categories": "womens-accessories",
+    "tags": ["Bag", "green"],
+    "categories": "womens-Accessories",
     "availability_count": 150,
     "description": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.\n\n Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, comic book artists, graffiti artists, and now—anyone who arranges words, letters, numbers, and symbols for publication, display, or distribution—from clerical workers and newsletter writers to anyone self-publishing materials.\n\n Until the Digital Age, typography was a specialized occupation. Digitization opened up typography to new generations of previously unrelated designers and lay users, and David Jury, head of graphic design at Colchester Institute in England, states that “typography is now something everybody does. As the capability to create typography has become ubiquitous, the application of principles and best practices developed over generations of skilled workers and professionals has diminished. Ironically, at a time when scientific techniques."
   },
@@ -126,8 +126,8 @@
     "title": "Youthful Lipstick",
     "price": 69.99,
     "sku": "SKU71301",
-    "tags": ["Bag", "black", "jacket", "men", "green"],
-    "categories": "womens-accessories",
+    "tags": ["Bag", "black"],
+    "categories": "womens-Accessories",
     "availability_count": 150,
     "description": "Finally—a white sneaker for the rest of your life. Whether you’re walking, working, or simply kicking it, the versatile and understated Royale Blanco is going to get you where you need to go. It might even help you feel better about where you are right now. Every great outfit is built from the ground up. Start here.\n\n Typography is the work of typesetters, compositors, typographers, graphic designers, art directors, manga artists, comic book artists, graffiti artists, and now—anyone who arranges words, letters, numbers, and symbols for publication, display, or distribution—from clerical workers and newsletter writers to anyone self-publishing materials.\n\n Until the Digital Age, typography was a specialized occupation. Digitization opened up typography to new generations of previously unrelated designers and lay users, and David Jury, head of graphic design at Colchester Institute in England, states that “typography is now something everybody does. As the capability to create typography has become ubiquitous, the application of principles and best practices developed over generations of skilled workers and professionals has diminished. Ironically, at a time when scientific techniques."
   }

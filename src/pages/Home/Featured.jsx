@@ -1,9 +1,23 @@
-import img1 from "../../assets/p1.webp";
-import img2 from "../../assets/p1v2.webp";
+import { useQuery } from "@tanstack/react-query";
+
 import Container from "../../components/shared/Container";
 import FeaturedImage from "../../components/shared/FeaturedImage";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import Loader from "../../components/shared/Loader";
 
 const Featured = () => {
+  const axiosPublic = useAxiosPublic();
+  const { data: featureProducts = [], status } = useQuery({
+    queryKey: ["featuredProducts"],
+    queryFn: async () => {
+      const res = await axiosPublic.get("/products");
+      return res.data;
+    },
+  });
+
+  if (status === "pending") {
+    return <Loader></Loader>;
+  }
   return (
     <Container>
       <div className="pt-16 pb-10">
@@ -16,34 +30,18 @@ const Featured = () => {
       </div>
       <div className="pb-16">
         <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-10 gap-5">
-          <div>
-            <FeaturedImage img1={img1} img2={img2}></FeaturedImage>
-            <div className="text-[#333] pt-2">
-              <h4>Gray T-Shirt</h4>
-              <p>$ 14.00</p>
+          {featureProducts?.slice(0, 8)?.map((product) => (
+            <div key={product?._id}>
+              <FeaturedImage
+                img1={product?.thumbnail_url}
+                img2={product?.image_url}
+              ></FeaturedImage>
+              <div className="text-[#333] pt-2">
+                <h4>{product?.title}</h4>
+                <p>$ {product?.price}</p>
+              </div>
             </div>
-          </div>
-          <div>
-            <FeaturedImage img1={img1} img2={img2}></FeaturedImage>
-            <div className="text-[#333] pt-2">
-              <h4>Gray T-Shirt</h4>
-              <p>$ 14.00</p>
-            </div>
-          </div>
-          <div>
-            <FeaturedImage img1={img1} img2={img2}></FeaturedImage>
-            <div className="text-[#333] pt-2">
-              <h4>Gray T-Shirt</h4>
-              <p>$ 14.00</p>
-            </div>
-          </div>
-          <div>
-            <FeaturedImage img1={img1} img2={img2}></FeaturedImage>
-            <div className="text-[#333] pt-2">
-              <h4>Gray T-Shirt</h4>
-              <p>$ 14.00</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </Container>
