@@ -1,9 +1,14 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CategoryCard = ({ img, title }) => {
+  const navigate = useNavigate();
+
+  const handleShop = () => {
+    navigate("/shop");
+  };
   return (
-    <Link to="/shop">
+    <div onClick={handleShop}>
       <div className="relative">
         <img
           src={img}
@@ -17,7 +22,7 @@ const CategoryCard = ({ img, title }) => {
           </Link>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

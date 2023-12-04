@@ -11,17 +11,17 @@ const UpperNavbar = () => {
           </h3>
           <ul className="flex items-start justify-end gap-2 text-white">
             <li>
-              <a href="">
+              <a href="/">
                 <FaFacebookF />
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="/">
                 <FaInstagram />
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="/">
                 <FaTwitter />
               </a>
             </li>
