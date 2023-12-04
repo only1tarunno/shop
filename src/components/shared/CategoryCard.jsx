@@ -15,10 +15,10 @@ const CategoryCard = ({ img, title }) => {
           className="transition-transform duration-300 hover:-translate-y-2 rounded w-full object-cover cursor-pointer"
           alt={title}
         />
-        <div className="absolute bottom-3 left-5">
+        <div className="absolute bottom-5 left-5">
           <h3 className="font-bold text-xl text-[#333]">{title}</h3>
           <Link to="/shop">
-            <p className="text-[#999999]">View all</p>
+            <p className="text-[#000000]">View all</p>
           </Link>
         </div>
       </div>

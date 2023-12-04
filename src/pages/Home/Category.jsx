@@ -14,11 +14,11 @@ const Category = () => {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           <CategoryCard img={cat1} title="T-Shirts"></CategoryCard>
-          <CategoryCard img={cat2} title="T-Shirts"></CategoryCard>
-          <CategoryCard img={cat3} title="T-Shirts"></CategoryCard>
-          <CategoryCard img={cat4} title="T-Shirts"></CategoryCard>
-          <CategoryCard img={cat5} title="T-Shirts"></CategoryCard>
-          <CategoryCard img={cat6} title="T-Shirts"></CategoryCard>
+          <CategoryCard img={cat2} title="Sunglasses"></CategoryCard>
+          <CategoryCard img={cat3} title="Shoes"></CategoryCard>
+          <CategoryCard img={cat4} title="Jackets"></CategoryCard>
+          <CategoryCard img={cat5} title="Bags"></CategoryCard>
+          <CategoryCard img={cat6} title="Accessories"></CategoryCard>
         </div>
       </Container>
     </>

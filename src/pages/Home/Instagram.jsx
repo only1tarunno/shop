@@ -17,7 +17,7 @@ import { FreeMode } from "swiper/modules";
 
 const Instagram = () => {
   return (
-    <div className="pb-16">
+    <div className="">
       <div className="pt-5 pb-10">
         <h3 className="text-sm font-bold text-[#999999] text-center">
           STAY UP-TO-DATE

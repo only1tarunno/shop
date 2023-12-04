@@ -4,6 +4,8 @@ import Container from "../../components/shared/Container";
 import FeaturedImage from "../../components/shared/FeaturedImage";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Loader from "../../components/shared/Loader";
+import Button from "../../components/shared/Button";
+import { Link } from "react-router-dom";
 
 const Featured = () => {
   const axiosPublic = useAxiosPublic();
@@ -20,7 +22,7 @@ const Featured = () => {
   }
   return (
     <Container>
-      <div className="pt-16 pb-10">
+      <div className="pt-20 pb-16">
         <h3 className="text-sm font-bold text-[#999999] text-center">
           TOP SALE ON THIS WEEK
         </h3>
@@ -42,6 +44,11 @@ const Featured = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="text-center py-10">
+          <Link to="/shop">
+            <Button text={"View More"}></Button>
+          </Link>
         </div>
       </div>
     </Container>

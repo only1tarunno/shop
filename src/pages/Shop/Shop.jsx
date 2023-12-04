@@ -127,9 +127,9 @@ const Shop = () => {
                 onChange={handlePrice}
                 className="select select-bordered Uppercase w-full md:max-w-xs focus:outline-none"
               >
-                <option value={""}>Relevance</option>
-                <option value={"asc"}>Sort by price: low to high</option>
-                <option value={"desc"}>Sort by price: high to low</option>
+                <option value={""}>Sort by price</option>
+                <option value={"asc"}>Low to high</option>
+                <option value={"desc"}>High to low</option>
               </select>
             </div>
             {/* search  */}
