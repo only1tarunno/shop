@@ -8,11 +8,11 @@ const Footer = () => {
   return (
     <footer className="bg-[#fafafa] pb-8">
       <Container>
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-16">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-16">
           <div>
             <img src={logo} className="w-24" alt="" />
             <ul className="text-[#555] text-sm space-y-3 pt-4">
-              <li> Calista Wise 7292 Dictum Av. Antonio, Italy.</li>
+              <li> Dhaka, Bangldesh.</li>
               <li>
                 <a href="tel:+8801743821440" className="hover:text-[#f76b6a]">
                   (+880)1743-821440
