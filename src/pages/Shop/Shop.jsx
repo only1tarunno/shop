@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import Lottie from "lottie-web";
 import Loader from "../../components/shared/Loader";
 import FeaturedImage from "../../components/shared/FeaturedImage";
+import { Link } from "react-router-dom";
 
 const Shop = () => {
   const [search, setSearch] = useState("");
@@ -163,14 +164,16 @@ const Shop = () => {
                 {products?.length > 0 ? (
                   products.map((product, index) => (
                     <div key={`${product._id}_${index}`}>
-                      <FeaturedImage
-                        img1={product?.thumbnail_url}
-                        img2={product?.image_url}
-                      ></FeaturedImage>
-                      <div className="text-[#333] pt-2">
-                        <h4>{product?.title}</h4>
-                        <p>$ {product?.price}</p>
-                      </div>
+                      <Link to={`/product/${product._id}`}>
+                        <FeaturedImage
+                          img1={product?.thumbnail_url}
+                          img2={product?.image_url}
+                        ></FeaturedImage>
+                        <div className="text-[#333] pt-2">
+                          <h4>{product?.title}</h4>
+                          <p>$ {product?.price}</p>
+                        </div>
+                      </Link>
                     </div>
                   ))
                 ) : (

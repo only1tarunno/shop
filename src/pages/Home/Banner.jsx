@@ -70,7 +70,7 @@ const Banner = () => {
       style={{
         backgroundImage: `url(${curentinfo.bgimg})`,
       }}
-      className="home-banner bg-center bg-no-repeat bg-cover relative -z-10"
+      className="home-banner bg-center bg-no-repeat bg-cover relative z-0"
     >
       <div className="2xl:px-56 xl:px-48 md:px-10 sm:px-2 px-5 mx-auto min-h-[600px] relative z-50 flex justify-center py-8 lg:py-0 lg:justify-between items-center flex-col lg:flex-row">
         <div className="w-full lg:w-[600px] px-5 xl:px-0 text-center lg:text-start">

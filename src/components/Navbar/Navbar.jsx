@@ -31,7 +31,7 @@ const Navbar = () => {
       <UpperNavbar></UpperNavbar>
       <div className="bg-white border-b border-[#eaeaea]">
         <Container>
-          <div className="drawer">
+          <div className="drawer relative z-50">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
               {/* Navbar */}
