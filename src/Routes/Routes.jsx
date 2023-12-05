@@ -5,6 +5,7 @@ import Shop from "../pages/Shop/Shop";
 import Contact from "../pages/Contact/Contact";
 import FAQPage from "../pages/FAQ/FAQ";
 import Error404 from "../pages/Error404/Error404";
+import Login from "../pages/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/faq",
         element: <FAQPage></FAQPage>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
     ],
   },

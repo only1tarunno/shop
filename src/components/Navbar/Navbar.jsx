@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Container from "../shared/Container";
 import { GrShop } from "react-icons/gr";
 import { FaRegUserCircle } from "react-icons/fa";
@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <>
       <UpperNavbar></UpperNavbar>
-      <div className="bg-white">
+      <div className="bg-white border-b border-[#eaeaea]">
         <Container>
           <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -68,9 +68,11 @@ const Navbar = () => {
                 </div>
                 {/* button start here  */}
                 <div className="w-1/4 justify-end">
-                  <button className="px-3 text-sm font-medium shadow-none text-center text-[#333] btn bg-transparent border-none hover:bg-transparent focus:outline-none">
-                    <FaRegUserCircle className="w-5 h-5" />
-                  </button>
+                  <Link to="/login">
+                    <button className="px-3 text-sm font-medium shadow-none text-center text-[#333] btn bg-transparent border-none hover:bg-transparent focus:outline-none">
+                      <FaRegUserCircle className="w-5 h-5" />
+                    </button>
+                  </Link>
                   <button
                     type="button"
                     className="relative inline-flex items-center px-0 text-sm font-medium shadow-none text-center text-[#333] btn bg-transparent border-none hover:bg-transparent focus:outline-none "

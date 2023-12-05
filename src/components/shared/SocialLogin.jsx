@@ -1,50 +1,55 @@
-// const SocialLogin = () => {
-//   const { googleSingin } = useAuth();
-//   const axiosPublic = useAxiosPublic();
-//   const location = useLocation();
-//   const navigate = useNavigate();
-//   const from = location?.state?.from?.pathname || "/";
+import { useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { FcGoogle } from "react-icons/fc";
+import Swal from "sweetalert2";
 
-//   const handleGoogleLogin = () => {
-//     googleSingin()
-//       .then((result) => {
-//         Swal.fire({
-//           icon: "success",
-//           title: "Thank You",
-//           text: "Google Login was Succesful",
-//           showConfirmButton: false,
-//           timer: 1500,
-//         });
+const SocialLogin = () => {
+  const { googleSingin } = useAuth();
+  const axiosPublic = useAxiosPublic();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state?.from?.pathname || "/";
 
-//         const userInfo = {
-//           name: result.user?.displayName,
-//           email: result.user?.email,
-//           image: result.user?.photoURL,
-//           premiumTaken: false,
-//           role: "user",
-//         };
-//         navigate(from, { replace: true });
-//         axiosPublic.post("/users", userInfo).then(() => {});
-//       })
-//       .catch(() => {
-//         Swal.fire({
-//           icon: "error",
-//           title: "Oops",
-//           text: "Google Login is Incomplete",
-//         });
-//       });
-//   };
+  const handleGoogleLogin = () => {
+    googleSingin()
+      .then((result) => {
+        Swal.fire({
+          icon: "success",
+          title: "Thank You",
+          text: "Google Login was Succesful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
 
-//   return (
-//     <div
-//       onClick={handleGoogleLogin}
-//       className="flex justify-center items-center space-x-2 border m-3 p-2 border-[#BB9CC0] border-rounded cursor-pointer"
-//     >
-//       <FcGoogle size={32} />
+        const userInfo = {
+          name: result.user?.displayName,
+          email: result.user?.email,
+          image: result.user?.photoURL,
+          role: "user",
+        };
+        navigate(from, { replace: true });
+        axiosPublic.post("/users", userInfo).then(() => {});
+      })
+      .catch(() => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops",
+          text: "Google Login is Incomplete",
+        });
+      });
+  };
 
-//       <p>Continue with Google</p>
-//     </div>
-//   );
-// };
+  return (
+    <div
+      onClick={handleGoogleLogin}
+      className="flex justify-center items-center space-x-2 border m-3 p-2 border-[#e8e8e8] border-rounded cursor-pointer"
+    >
+      <FcGoogle size={32} />
 
-// export default SocialLogin;
+      <p>Continue with Google</p>
+    </div>
+  );
+};
+
+export default SocialLogin;
