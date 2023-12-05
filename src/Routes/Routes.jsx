@@ -3,13 +3,14 @@ import Main from "../layout/Main";
 import Home from "../pages/Home/Home";
 import Shop from "../pages/Shop/Shop";
 import Contact from "../pages/Contact/Contact";
-import FAQ from "../pages/FAQ/FAQ";
+import FAQPage from "../pages/FAQ/FAQ";
+import Error404 from "../pages/Error404/Error404";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    errorElement: "ll",
+    errorElement: <Error404></Error404>,
     children: [
       {
         path: "/",
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/faq",
-        element: <FAQ></FAQ>,
+        element: <FAQPage></FAQPage>,
       },
     ],
   },

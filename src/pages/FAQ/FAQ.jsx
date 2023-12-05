@@ -3,7 +3,7 @@ import Container from "../../components/shared/Container";
 import InnerPageBanner from "../../components/shared/InnerPageBanner";
 import Button from "../../components/shared/Button";
 
-const FAQ = () => {
+const FAQPage = () => {
   return (
     <div>
       <InnerPageBanner subTitle="FAQ" title="FAQS"></InnerPageBanner>
@@ -131,4 +131,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default FAQPage;
