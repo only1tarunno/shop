@@ -1,11 +1,12 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Container from "../shared/Container";
 import logo from "../../assets/logo.avif";
 import UpperNavbar from "./UpperNavbar";
 import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
+  const navigate = useNavigate();
   const links = (
     <>
       <li>
@@ -26,6 +27,11 @@ const Navbar = () => {
       </li>
     </>
   );
+
+  const handleLogOut = () => {
+    logOut().then(navigate("/login")).catch();
+  };
+
   return (
     <>
       <UpperNavbar></UpperNavbar>
@@ -80,7 +86,7 @@ const Navbar = () => {
                           <div className="w-8 h-8 rounded-[50%] object-cover">
                             <img
                               alt="Tailwind CSS Navbar component"
-                              src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                              src={user.photoURL}
                             />
                           </div>
                         </div>
@@ -89,11 +95,21 @@ const Navbar = () => {
                           className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded px-3"
                         >
                           <li>
-                            <a>Profile</a>
+                            <Link
+                              style={{ textTransform: "capitalize" }}
+                              to="/profile"
+                            >
+                              Profile
+                            </Link>
                           </li>
 
                           <li>
-                            <a>Logout</a>
+                            <button
+                              onClick={handleLogOut}
+                              className="hover:bg-transparent hover:text-[#f76b6a] rounded-sm"
+                            >
+                              Logout
+                            </button>
                           </li>
                         </ul>
                       </div>
@@ -104,8 +120,8 @@ const Navbar = () => {
                         <button className="px-3 text-sm font-medium shadow-none text-center text-[#333] btn bg-transparent border-none hover:bg-transparent focus:outline-none">
                           <svg
                             version="1.1"
-                            width="30"
-                            height="30"
+                            width="26"
+                            height="26"
                             viewBox="0 0 17 17"
                           >
                             <path
