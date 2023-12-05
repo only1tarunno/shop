@@ -38,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <>
       <Container>
         <div className=" py-10">
           <div className="mx-auto max-w-xl p-6 rounded-md sm:p-10 border-[#e8e8e8] border-dashed border-2 text-black">
@@ -108,7 +108,7 @@ const Login = () => {
           </div>
         </div>
       </Container>
-    </div>
+    </>
   );
 };
 
