@@ -8,6 +8,11 @@ import Error404 from "../pages/Error404/Error404";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import ProductDetail from "../pages/productDetail/ProductDetail";
+import PvtRoute from "./PvtRoute";
+import DashboardLayout from "../layout/DashboardLayout";
+import Cart from "../pages/Dashboard/UserPages/Cart/Cart";
+import UserDashboard from "../pages/Dashboard/UserPages/UserDashboard/UserDashboard";
+import UserProfile from "../pages/Dashboard/UserPages/UserProfile/UserProfile";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +47,28 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PvtRoute>
+        <DashboardLayout></DashboardLayout>
+      </PvtRoute>
+    ),
+    children: [
+      {
+        path: "/dashboard/userDashboard",
+        element: <UserDashboard></UserDashboard>,
+      },
+      {
+        path: "/dashboard/profile",
+        element: <UserProfile></UserProfile>,
+      },
+      {
+        path: "/dashboard/cart",
+        element: <Cart></Cart>,
       },
     ],
   },

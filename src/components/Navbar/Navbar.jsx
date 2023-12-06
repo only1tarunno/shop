@@ -99,12 +99,19 @@ const Navbar = () => {
                           <li>
                             <Link
                               style={{ textTransform: "capitalize" }}
-                              to="/profile"
+                              to="/dashboard/userDashboard"
+                            >
+                              Dashboard
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              style={{ textTransform: "capitalize" }}
+                              to="/dashboard/profile"
                             >
                               Profile
                             </Link>
                           </li>
-
                           <li>
                             <button
                               onClick={handleLogOut}
@@ -139,9 +146,12 @@ const Navbar = () => {
                   {/* -----------cart icon----------------------------- */}
                   <div className="indicator mr-2">
                     <span className="indicator-item badge bg-[#f76b6a] text-white top-3 end-0 font-thin">
-                      {cart.totalQuantity}
+                      {user ? cart.totalQuantity : "0"}
                     </span>
-                    <button className="px-0 btn shadow-none bg-transparent border-none hover:bg-transparent focus:outline-none">
+                    <button
+                      onClick={() => navigate("/dashboard/cart")}
+                      className="px-0 btn shadow-none bg-transparent border-none hover:bg-transparent focus:outline-none"
+                    >
                       <svg
                         version="1.1"
                         width="30"
