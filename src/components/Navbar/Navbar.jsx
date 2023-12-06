@@ -144,14 +144,14 @@ const Navbar = () => {
                   )}
 
                   {/* -----------cart icon----------------------------- */}
-                  <div className="indicator mr-2">
-                    <span className="indicator-item badge bg-[#f76b6a] text-white top-3 end-0 font-thin">
+                  <div
+                    onClick={() => navigate("/dashboard/cart")}
+                    className="indicator mr-2"
+                  >
+                    <span className="indicator-item badge bg-[#f76b6a] text-white top-3 end-0 font-thin cursor-pointer">
                       {user ? cart.totalQuantity : "0"}
                     </span>
-                    <button
-                      onClick={() => navigate("/dashboard/cart")}
-                      className="px-0 btn shadow-none bg-transparent border-none hover:bg-transparent focus:outline-none"
-                    >
+                    <button className="px-0 btn shadow-none bg-transparent border-none hover:bg-transparent focus:outline-none">
                       <svg
                         version="1.1"
                         width="30"

@@ -1,5 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import Loader from "../../components/shared/Loader";
 import Container from "../../components/shared/Container";
@@ -15,6 +13,8 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useCart from "../../hooks/useCart";
+import useProducts from "../../hooks/useProducts";
+import useSingleCartProduct from "../../hooks/useSingleCartProduct";
 
 const ProductDetail = () => {
   const { user } = useAuth();
@@ -23,15 +23,10 @@ const ProductDetail = () => {
   const location = useLocation();
   const [, refetch] = useCart();
   const [quantity, setQuantity] = useState(1);
-  const axiosPublic = useAxiosPublic();
+
   const { id } = useParams();
-  const { data: product = {}, isLoading } = useQuery({
-    queryKey: ["singleproductsDetsils"],
-    queryFn: async () => {
-      const res = await axiosPublic.get(`/products/${id}`);
-      return res.data;
-    },
-  });
+  const [product, isLoading] = useProducts(id);
+  const [singleCart, singlecartRefect] = useSingleCartProduct(id);
 
   const reviews = product?.reviews || [];
 
@@ -49,9 +44,9 @@ const ProductDetail = () => {
 
   // handle add to cart
   const handleAddToCart = (product) => {
-    const { _id, price, ...item } = product;
-
+    // check login
     if (user && user?.email) {
+      const { _id, price, ...item } = product;
       const cartItem = {
         menuId: _id,
         quantity,
@@ -59,20 +54,48 @@ const ProductDetail = () => {
         email: user.email,
         ...item,
       };
-
-      axiosSecure.post("/carts", cartItem).then((res) => {
-        if (res.data.email) {
-          Swal.fire({
-            icon: "success",
-            title: `${product.title} is added to your cart`,
-            showConfirmButton: false,
-            timer: 1500,
+      // alert on added product
+      const addToCartSuccess = () => {
+        Swal.fire({
+          icon: "success",
+          title: `${product.title} is added to your cart`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        // Refetch cart to update cart items count
+        refetch();
+        singlecartRefect();
+      };
+      // if the product is not added in the cart
+      if (singleCart?.message) {
+        axiosSecure.post("/carts", cartItem).then((res) => {
+          if (res.data.email) {
+            addToCartSuccess();
+          }
+        });
+      } else if (singleCart?.quantity) {
+        //if the product is  added check & the quantity before add a product
+        if (singleCart?.quantity + quantity <= product?.availability_count) {
+          axiosSecure.post("/carts", cartItem).then((res) => {
+            if (res.data.email) {
+              addToCartSuccess();
+            }
           });
-          // refect cart  to update cart items count
-          refetch();
+        } else {
+          // if product stock is out
+          Swal.fire({
+            icon: "error",
+            title: `You already added ${singleCart?.quantity} units`,
+            text: `Sorry, the available stock for this product is limited to ${
+              product?.availability_count
+            } units. You can add only ${
+              product?.availability_count - singleCart?.quantity
+            } units.`,
+          });
         }
-      });
+      }
     } else {
+      // if user is not log in
       Swal.fire({
         title: "You are not Login",
         text: "Please Login to purchase this item",
