@@ -55,7 +55,7 @@ const ProductDetail = () => {
       const cartItem = {
         menuId: _id,
         quantity,
-        totalPrice: price * quantity,
+        totalPrice: parseFloat((price * quantity).toFixed(2)),
         email: user.email,
         ...item,
       };

@@ -137,33 +137,28 @@ const Navbar = () => {
                   )}
 
                   {/* -----------cart icon----------------------------- */}
-                  <button
-                    type="button"
-                    className="relative inline-flex items-center px-0 text-sm font-medium shadow-none text-center text-[#333] btn bg-transparent border-none hover:bg-transparent focus:outline-none "
-                  >
-                    <svg
-                      version="1.1"
-                      width="30"
-                      height="30"
-                      viewBox="0 0 17 17"
-                      id="svg50"
-                    >
-                      <path
-                        d="m 14.176,12.5 c 0.965,0 1.75,0.785 1.75,1.75 0,0.965 -0.785,1.75 -1.75,1.75 -0.965,0 -1.75,-0.785 -1.75,-1.75 0,-0.965 0.785,-1.75 1.75,-1.75 z m 0,2.5 c 0.414,0 0.75,-0.337 0.75,-0.75 0,-0.413 -0.336,-0.75 -0.75,-0.75 -0.414,0 -0.75,0.337 -0.75,0.75 0,0.413 0.336,0.75 0.75,0.75 z m -8.5,-2.5 c 0.965,0 1.75,0.785 1.75,1.75 0,0.965 -0.785,1.75 -1.75,1.75 -0.965,0 -1.75,-0.785 -1.75,-1.75 0,-0.965 0.785,-1.75 1.75,-1.75 z m 0,2.5 c 0.414,0 0.75,-0.337 0.75,-0.75 0,-0.413 -0.336,-0.75 -0.75,-0.75 -0.414,0 -0.75,0.337 -0.75,0.75 0,0.413 0.336,0.75 0.75,0.75 z M 3.555,2 3.857,4 H 17 l -1.118,8.036 H 3.969 L 2.931,4.573 2.695,3 H -0.074 V 2 Z M 4,5 4.139,6 H 15.713 L 15.852,5 Z M 15.012,11.036 15.573,7 H 4.278 l 0.561,4.036 z"
-                        fill="#000000"
-                        id="path48"
-                      ></path>
-                    </svg>
-
-                    <span className="sr-only">Notifications</span>
-                    <div className="absolute inline-flex items-center justify-center w-5 h-5 text-[12px] font-bold text-white bg-[#f76b6a] rounded-full top-2 -end-1 ">
-                      {cart.length}
-                    </div>
-                  </button>
+                  <div className="indicator">
+                    <span className="indicator-item badge bg-[#f76b6a] text-white top-2 end-1 font-thin">
+                      {cart.totalQuantity}
+                    </span>
+                    <button className="btn shadow-none bg-transparent border-none hover:bg-transparent focus:outline-none">
+                      <svg
+                        version="1.1"
+                        width="30"
+                        height="30"
+                        viewBox="0 0 17 17"
+                        id="svg50"
+                      >
+                        <path
+                          d="m 14.176,12.5 c 0.965,0 1.75,0.785 1.75,1.75 0,0.965 -0.785,1.75 -1.75,1.75 -0.965,0 -1.75,-0.785 -1.75,-1.75 0,-0.965 0.785,-1.75 1.75,-1.75 z m 0,2.5 c 0.414,0 0.75,-0.337 0.75,-0.75 0,-0.413 -0.336,-0.75 -0.75,-0.75 -0.414,0 -0.75,0.337 -0.75,0.75 0,0.413 0.336,0.75 0.75,0.75 z m -8.5,-2.5 c 0.965,0 1.75,0.785 1.75,1.75 0,0.965 -0.785,1.75 -1.75,1.75 -0.965,0 -1.75,-0.785 -1.75,-1.75 0,-0.965 0.785,-1.75 1.75,-1.75 z m 0,2.5 c 0.414,0 0.75,-0.337 0.75,-0.75 0,-0.413 -0.336,-0.75 -0.75,-0.75 -0.414,0 -0.75,0.337 -0.75,0.75 0,0.413 0.336,0.75 0.75,0.75 z M 3.555,2 3.857,4 H 17 l -1.118,8.036 H 3.969 L 2.931,4.573 2.695,3 H -0.074 V 2 Z M 4,5 4.139,6 H 15.713 L 15.852,5 Z M 15.012,11.036 15.573,7 H 4.278 l 0.561,4.036 z"
+                          fill="#000000"
+                          id="path48"
+                        ></path>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
-              {/* Page content here */}
-              {/* Content */}
             </div>
             <div className="drawer-side">
               <label
