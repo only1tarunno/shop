@@ -137,11 +137,11 @@ const Navbar = () => {
                   )}
 
                   {/* -----------cart icon----------------------------- */}
-                  <div className="indicator">
-                    <span className="indicator-item badge bg-[#f76b6a] text-white top-2 end-1 font-thin">
+                  <div className="indicator mr-2">
+                    <span className="indicator-item badge bg-[#f76b6a] text-white top-3 end-0 font-thin">
                       {cart.totalQuantity}
                     </span>
-                    <button className="btn shadow-none bg-transparent border-none hover:bg-transparent focus:outline-none">
+                    <button className="px-0 btn shadow-none bg-transparent border-none hover:bg-transparent focus:outline-none">
                       <svg
                         version="1.1"
                         width="30"
