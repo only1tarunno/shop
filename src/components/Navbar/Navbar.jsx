@@ -3,9 +3,11 @@ import Container from "../shared/Container";
 import logo from "../../assets/logo.avif";
 import UpperNavbar from "./UpperNavbar";
 import useAuth from "../../hooks/useAuth";
+import useCart from "../../hooks/useCart";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const [cart] = useCart();
   const navigate = useNavigate();
   const links = (
     <>
@@ -155,7 +157,7 @@ const Navbar = () => {
 
                     <span className="sr-only">Notifications</span>
                     <div className="absolute inline-flex items-center justify-center w-5 h-5 text-[12px] font-bold text-white bg-[#f76b6a] rounded-full top-2 -end-1 ">
-                      0
+                      {cart.length}
                     </div>
                   </button>
                 </div>

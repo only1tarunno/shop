@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import Loader from "../../components/shared/Loader";
 import Container from "../../components/shared/Container";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -11,8 +11,17 @@ import cartimg from "../../assets/Safecheckout.png";
 import Reviewcard from "./Reviewcard";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import useCart from "../../hooks/useCart";
 
 const ProductDetail = () => {
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [, refetch] = useCart();
   const [quantity, setQuantity] = useState(1);
   const axiosPublic = useAxiosPublic();
   const { id } = useParams();
@@ -37,6 +46,48 @@ const ProductDetail = () => {
   }, 0);
 
   const avgReview = totalReviews > 0 ? sumOfValues / totalReviews : 0;
+
+  // handle add to cart
+  const handleAddToCart = (product) => {
+    const { _id, price, ...item } = product;
+
+    if (user && user?.email) {
+      const cartItem = {
+        menuId: _id,
+        quantity,
+        totalPrice: price * quantity,
+        email: user.email,
+        ...item,
+      };
+
+      axiosSecure.post("/carts", cartItem).then((res) => {
+        if (res.data.email) {
+          Swal.fire({
+            icon: "success",
+            title: `${product.title} is added to your cart`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          // refect cart  to update cart items count
+          refetch();
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "You are not Login",
+        text: "Please Login to purchase this item",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
+    }
+  };
 
   if (isLoading) {
     return <Loader></Loader>;
@@ -112,7 +163,10 @@ const ProductDetail = () => {
                 </button>
               </div>
               <div>
-                <button className="uppercase bg-[#f76b6a] border-[#f76b6a] hover:bg-[#4c5161] hover:border-[#4c5161] text-white btn btn-sm w-full md:max-w-[224px] rounded-sm">
+                <button
+                  onClick={() => handleAddToCart(product?.product)}
+                  className="uppercase bg-[#f76b6a] border-[#f76b6a] hover:bg-[#4c5161] hover:border-[#4c5161] text-white btn btn-sm w-full md:max-w-[224px] rounded-sm"
+                >
                   ADD TO CART
                 </button>
               </div>
