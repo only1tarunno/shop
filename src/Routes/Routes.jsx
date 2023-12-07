@@ -13,6 +13,7 @@ import DashboardLayout from "../layout/DashboardLayout";
 import Cart from "../pages/Dashboard/UserPages/Cart/Cart";
 import UserDashboard from "../pages/Dashboard/UserPages/UserDashboard/UserDashboard";
 import UserProfile from "../pages/Dashboard/UserPages/UserProfile/UserProfile";
+import Payment from "../pages/Dashboard/UserPages/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/cart",
         element: <Cart></Cart>,
+      },
+      {
+        path: "payment",
+        element: <Payment></Payment>,
       },
     ],
   },
