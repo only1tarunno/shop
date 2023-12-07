@@ -1,6 +1,21 @@
+import { useQuery } from "@tanstack/react-query";
 import InnerSectiontitle from "../../../../components/Dashboard/InnerSectiontitle";
+import useAuth from "../../../../hooks/useAuth";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 const PaymentHistory = () => {
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+
+  const { data: payments = [] } = useQuery({
+    queryKey: ["paymentsHistory"],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/payments/${user?.email}`);
+      return res.data;
+    },
+  });
+
+  console.log(payments);
   return (
     <div>
       <div className="py-16">
@@ -27,26 +42,40 @@ const PaymentHistory = () => {
                 </tr>
               </thead>
               <tbody>
-                {/* {cart?.cartProducts?.length > 0 ? (
-                  cart?.cartProducts?.map((product, index) => (
-                    <CartTableRow
-                      key={product._id}
-                      productData={product}
-                      serial={index}
-                    ></CartTableRow>
-                  ))
-                ) : ( */}
-                <tr className="text-center border-none">
-                  <td colSpan={6}>
-                    <h2 className="text-3xl text-[#f76b6a] font-bold pt-10 pb-2">
-                      Your Cart is Empty
-                    </h2>
-                    <p className="text-lg">
-                      Browse our latest collections and find what you need.
-                    </p>
-                  </td>
-                </tr>
-                {/* )} */}
+                {payments?.length > 0 ? (
+                  <>
+                    {payments.map((item, index) => (
+                      <tr key={item._id}>
+                        <td>{index + 1}</td>
+                        <td>{item.transactionId}</td>
+                        <td>{item.productQuantity}</td>
+                        <td>$ {item.price}</td>
+                        <td> {item.status}</td>
+                        <td>
+                          {new Date(item.date).toLocaleString(undefined, {
+                            year: "numeric",
+                            month: "numeric",
+                            day: "numeric",
+                            hour: "numeric",
+                            minute: "numeric",
+                            hour12: true, // Use 12-hour format
+                          })}
+                        </td>
+                      </tr>
+                    ))}
+                  </>
+                ) : (
+                  <tr className="text-center border-none">
+                    <td colSpan={6}>
+                      <h2 className="text-3xl text-[#f76b6a] font-bold pt-10 pb-2">
+                        No Transactions Found
+                      </h2>
+                      <p className="text-lg">
+                        Browse our latest collections and find what you need.
+                      </p>
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>

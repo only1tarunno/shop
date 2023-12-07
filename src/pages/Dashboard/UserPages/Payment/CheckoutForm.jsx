@@ -4,19 +4,22 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useAuth from "../../../../hooks/useAuth";
 import useCart from "../../../../hooks/useCart";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
   const [error, setError] = useState("");
   const [clientSecret, setclientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const [cart, refetch] = useCart();
-  const totalPrice = 10;
-  //   cart.reduce((sum, item) => sum + item.price, 0).toFixed(1);
 
+  const totalPrice = cart.cartProducts
+    .reduce((sum, item) => sum + item.totalPrice, 0)
+    .toFixed(2);
   useEffect(() => {
     if (totalPrice > 0) {
       axiosSecure
@@ -93,6 +96,7 @@ const CheckoutForm = () => {
 
         refetch();
         if (res.data?.message === "success") {
+          navigate("/dashboard/paymentHistory");
           Swal.fire({
             icon: "success",
             title: "Your payment is success",
