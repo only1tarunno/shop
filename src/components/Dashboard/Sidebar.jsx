@@ -10,9 +10,11 @@ import MenuItem from "./MenuItem";
 import { IoCartOutline } from "react-icons/io5";
 import { MdOutlinePayment } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
+import useCart from "../../hooks/useCart";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(false);
+  const [cart] = useCart();
 
   // Sidebar Responsive Handler
   const handleToggle = () => {
@@ -73,7 +75,7 @@ const Sidebar = () => {
                 icon={FaUserCircle}
               ></MenuItem>
               <MenuItem
-                label={`My Cart(0)`}
+                label={`My Cart(${cart.totalQuantity})`}
                 address="cart"
                 icon={IoCartOutline}
               ></MenuItem>

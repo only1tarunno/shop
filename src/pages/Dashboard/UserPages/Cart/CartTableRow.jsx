@@ -75,6 +75,34 @@ const CartTableRow = ({ productData, serial }) => {
     }
   };
 
+  const handleDelete = (id) => {
+    axiosSecure
+      .delete(`/carts/${id}`)
+      .then(() => {
+        refetch();
+
+        Swal.fire({
+          title: "You are not Login",
+          text: "Please Login to purchase this item",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Login",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              icon: "success",
+              title: `${title} has been deleted successfully`,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <tr>
       <td>{serial + 1}</td>
@@ -107,7 +135,12 @@ const CartTableRow = ({ productData, serial }) => {
       </td>
       <td>$ {cartPrice}</td>
       <th>
-        <button className="btn btn-ghost btn-xs">details</button>
+        <button
+          onClick={() => handleDelete(_id)}
+          className="btn btn-ghost btn-xs"
+        >
+          Delete
+        </button>
       </th>
     </tr>
   );
