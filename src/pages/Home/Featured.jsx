@@ -5,10 +5,11 @@ import FeaturedImage from "../../components/shared/FeaturedImage";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Loader from "../../components/shared/Loader";
 import Button from "../../components/shared/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Featured = () => {
   const axiosPublic = useAxiosPublic();
+  const navigate = useNavigate();
   const { data: featureProducts = [], status } = useQuery({
     queryKey: ["featuredProducts"],
     queryFn: async () => {
@@ -16,6 +17,10 @@ const Featured = () => {
       return res.data;
     },
   });
+
+  const handleNavigate = () => {
+    navigate("/shop");
+  };
 
   if (status === "pending") {
     return <Loader></Loader>;
@@ -33,7 +38,7 @@ const Featured = () => {
       <div className="pb-16">
         <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-10 gap-5">
           {featureProducts?.slice(0, 8)?.map((product) => (
-            <div key={product?._id}>
+            <div onClick={handleNavigate} key={product?._id}>
               <FeaturedImage
                 img1={product?.thumbnail_url}
                 img2={product?.image_url}

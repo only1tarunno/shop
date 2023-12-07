@@ -148,7 +148,7 @@ const Navbar = () => {
                     onClick={() => navigate("/dashboard/cart")}
                     className="indicator mr-2"
                   >
-                    <span className="indicator-item badge bg-[#f76b6a] text-white top-3 end-0 font-thin cursor-pointer">
+                    <span className="indicator-item badge bg-[#f76b6a] text-white top-3 end-0 font-thin cursor-pointer z-0">
                       {user ? cart.totalQuantity : "0"}
                     </span>
                     <button className="px-0 btn shadow-none bg-transparent border-none hover:bg-transparent focus:outline-none">
