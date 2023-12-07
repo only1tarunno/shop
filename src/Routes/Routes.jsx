@@ -14,6 +14,7 @@ import Cart from "../pages/Dashboard/UserPages/Cart/Cart";
 import UserDashboard from "../pages/Dashboard/UserPages/UserDashboard/UserDashboard";
 import UserProfile from "../pages/Dashboard/UserPages/UserProfile/UserProfile";
 import Payment from "../pages/Dashboard/UserPages/Payment/Payment";
+import PaymentHistory from "../pages/Dashboard/UserPages/PaymentHistory/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment></Payment>,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory></PaymentHistory>,
       },
     ],
   },

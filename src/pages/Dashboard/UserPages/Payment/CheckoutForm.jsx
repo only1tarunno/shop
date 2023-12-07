@@ -106,37 +106,40 @@ const CheckoutForm = () => {
   };
 
   return (
-    <form className="pt-10" onSubmit={handleSubmit}>
-      <div className="border p-2 max-w-xl">
-        <CardElement
-          options={{
-            style: {
-              base: {
-                fontSize: "16px",
-                color: "#424770",
-                "::placeholder": {
-                  color: "#aab7c4",
+    <div className="max-w-xl w-full mx-auto py-16">
+      {" "}
+      <form className="pt-10" onSubmit={handleSubmit}>
+        <div className="border p-2 max-w-xl">
+          <CardElement
+            options={{
+              style: {
+                base: {
+                  fontSize: "16px",
+                  color: "#424770",
+                  "::placeholder": {
+                    color: "#aab7c4",
+                  },
+                },
+                invalid: {
+                  color: "#9e2146",
                 },
               },
-              invalid: {
-                color: "#9e2146",
-              },
-            },
-          }}
-        />
-      </div>
-      <button
-        className="btn btn-primary mt-2"
-        type="submit"
-        disabled={!stripe || !clientSecret}
-      >
-        Pay
-      </button>
-      <p className="bg-red-600">{error}</p>
-      {transactionId && (
-        <p className="text-green-400">Your trans Id: {transactionId}</p>
-      )}
-    </form>
+            }}
+          />
+        </div>
+        <button
+          className="btn w-full mt-3 bg-[#f76b6a] border-[#f76b6a] px-8 rounded  hover:bg-[#4c5161] hover:border-[#4c5161] text-white font-medium uppercase"
+          type="submit"
+          disabled={!stripe || !clientSecret}
+        >
+          Pay
+        </button>
+        <p className="bg-red-600">{error}</p>
+        {transactionId && (
+          <p className="text-green-400">Your trans Id: {transactionId}</p>
+        )}
+      </form>
+    </div>
   );
 };
 
