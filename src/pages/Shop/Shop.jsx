@@ -7,6 +7,7 @@ import Lottie from "lottie-web";
 import Loader from "../../components/shared/Loader";
 import FeaturedImage from "../../components/shared/FeaturedImage";
 import { Link } from "react-router-dom";
+import useCategories from "../../hooks/useCategories";
 
 const Shop = () => {
   const [search, setSearch] = useState("");
@@ -16,6 +17,8 @@ const Shop = () => {
   const [asc, setAsc] = useState("");
   const [lottieload, setLootieLoad] = useState(false);
   const axiosPublic = useAxiosPublic();
+  const [categories, categoriesLoader] = useCategories();
+
   const {
     data: products = [],
     isLoading,
@@ -85,7 +88,7 @@ const Shop = () => {
     });
   }, [lottieload]);
 
-  if (isLoading) {
+  if (isLoading && categoriesLoader) {
     return <Loader></Loader>;
   }
 
@@ -115,10 +118,12 @@ const Shop = () => {
               <select
                 value={filterCategory}
                 onChange={handleCategory}
-                className="select select-bordered Uppercase w-full md:max-w-xs focus:outline-none"
+                className="select select-bordered Uppercase w-full md:max-w-xs focus:outline-none capitalize"
               >
                 <option value={""}>Filter By Category</option>
-                <option value={"womens-Accessories"}>Womens-Accessories</option>
+                {categories?.map((item) => (
+                  <option key={item?._id}>{item?.category}</option>
+                ))}
               </select>
             </div>
             {/* price filter  */}

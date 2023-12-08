@@ -15,7 +15,6 @@ const PaymentHistory = () => {
     },
   });
 
-  console.log(payments);
   return (
     <div>
       <div className="py-16">
