@@ -1,9 +1,7 @@
 # ELESSI
 
-Live Link: https://shop-73392.web.app/
-Server Repo: https://github.com/only1tarunno/shop-server
-
-<strong></strong>
+<strong>Live Link:</strong> https://shop-73392.web.app <br>
+<strong>Server Repo:</strong> https://github.com/only1tarunno/shop-server
 
 <h3>Different features and functionalities of my website:</h3>
 
