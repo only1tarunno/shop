@@ -3,7 +3,11 @@
 <strong>Live Link:</strong> https://shop-73392.web.app <br>
 <strong>Server Repo:</strong> https://github.com/only1tarunno/shop-server
 
-<h3>Different features and functionalities of my website:</h3>
+<br>
+
+## Different features and functionalities of my website:
+
+<br>
 
 <h4>Website Features:</h4>
 <ul>
@@ -30,3 +34,11 @@
     <li>Users can update their personal information on the dashboard's "My Profile" page.</li>
     <li>Users can request to become a Reseller from the dashboard.</li>
 </ul>
+
+<br>
+
+## Technology I have Used:
+
+<br>
+
+- Javascript, React, React router, Axios, TanStack Query, Tailwind, Firebase, Node Js, Mongodb, Mongoose & JWT
