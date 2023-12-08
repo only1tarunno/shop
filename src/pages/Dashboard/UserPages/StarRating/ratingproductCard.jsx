@@ -4,6 +4,7 @@ import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
+import Loader from "../../../../components/shared/Loader";
 
 /* eslint-disable react/prop-types */
 const RatingproductCard = ({ product }) => {
@@ -11,7 +12,11 @@ const RatingproductCard = ({ product }) => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [rating, setRating] = useState(4);
-  const { data: reviewData = {}, refetch } = useQuery({
+  const {
+    data: reviewData = {},
+    refetch,
+    isLoading,
+  } = useQuery({
     queryKey: ["getReviewDatafrom", _id],
     enabled: !!_id,
     queryFn: async () => {
@@ -44,6 +49,9 @@ const RatingproductCard = ({ product }) => {
       });
     }
   };
+  if (isLoading) {
+    return <Loader></Loader>;
+  }
 
   return (
     <>

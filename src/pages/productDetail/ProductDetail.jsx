@@ -186,12 +186,21 @@ const ProductDetail = () => {
                 </button>
               </div>
               <div>
-                <button
-                  onClick={() => handleAddToCart(product?.product)}
-                  className="uppercase bg-[#f76b6a] border-[#f76b6a] hover:bg-[#4c5161] hover:border-[#4c5161] text-white btn btn-sm w-full md:max-w-[224px] rounded-sm"
-                >
-                  ADD TO CART
-                </button>
+                {product?.product?.availability_count ? (
+                  <button
+                    onClick={() => handleAddToCart(product?.product)}
+                    className="uppercase bg-[#f76b6a] border-[#f76b6a] hover:bg-[#4c5161] hover:border-[#4c5161] text-white btn btn-sm w-full md:max-w-[224px] rounded-sm"
+                  >
+                    ADD TO CART
+                  </button>
+                ) : (
+                  <button
+                    disabled
+                    className="uppercase bg-[#f76b6a] border-[#f76b6a] hover:bg-[#4c5161] hover:border-[#4c5161] text-white btn btn-sm w-full md:max-w-[224px] rounded-sm"
+                  >
+                    ADD TO CART
+                  </button>
+                )}
               </div>
             </div>
             {/* meta data  */}
@@ -201,9 +210,11 @@ const ProductDetail = () => {
               </p>
               <p className="font-normal text-sm">
                 <span className="font-bold">Availability:</span>{" "}
-                {product?.product?.availability_count == 0
-                  ? "Stock Out"
-                  : "In Stock"}
+                {product?.product?.availability_count == 0 ? (
+                  <span className="bg-[#f76b6a] text-white">Stock Out</span>
+                ) : (
+                  <span>In Stock ({product?.product?.availability_count})</span>
+                )}
               </p>
               <p className="font-normal text-sm">
                 <span className="font-bold">Category:</span>{" "}

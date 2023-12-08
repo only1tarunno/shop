@@ -96,7 +96,7 @@ const CheckoutForm = () => {
 
         refetch();
         if (res.data?.message === "success") {
-          navigate("/dashboard/paymentHistory");
+          navigate("/dashboard/starRating");
           Swal.fire({
             icon: "success",
             title: "Your payment is success",
