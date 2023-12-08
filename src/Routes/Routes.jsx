@@ -16,6 +16,7 @@ import UserProfile from "../pages/Dashboard/UserPages/UserProfile/UserProfile";
 import Payment from "../pages/Dashboard/UserPages/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/UserPages/PaymentHistory/PaymentHistory";
 import StarRating from "../pages/Dashboard/UserPages/StarRating/StarRating";
+import Updateprofile from "../pages/Dashboard/UserPages/UserProfile/Updateprofile";
 
 const router = createBrowserRouter([
   {
@@ -66,11 +67,11 @@ const router = createBrowserRouter([
         element: <UserDashboard></UserDashboard>,
       },
       {
-        path: "/dashboard/profile",
+        path: "profile",
         element: <UserProfile></UserProfile>,
       },
       {
-        path: "/dashboard/cart",
+        path: "cart",
         element: <Cart></Cart>,
       },
       {
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
       {
         path: "starRating",
         element: <StarRating></StarRating>,
+      },
+      {
+        path: "updateProfile",
+        element: <Updateprofile></Updateprofile>,
       },
     ],
   },
