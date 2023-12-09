@@ -41,4 +41,4 @@
 
 <br>
 
-- Javascript, React, React router, Axios, TanStack Query, Tailwind, Firebase, Node Js, Mongodb, Mongoose & JWT
+- Javascript, React, React router, Axios, TanStack Query, Tailwind, Firebase, Payment Gateway, Node Js, Mongodb, Mongoose & JWT
