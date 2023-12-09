@@ -17,6 +17,10 @@ import Payment from "../pages/Dashboard/UserPages/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/UserPages/PaymentHistory/PaymentHistory";
 import StarRating from "../pages/Dashboard/UserPages/StarRating/StarRating";
 import Updateprofile from "../pages/Dashboard/UserPages/UserProfile/Updateprofile";
+import AdminDashboard from "../pages/Dashboard/Adminpages/AdminDashboard/AdminDashboard";
+import AdminRoute from "./AdminRoute";
+import Addproduct from "../pages/Dashboard/Adminpages/AddProduct/Addproduct";
+import AllProducts from "../pages/Dashboard/Adminpages/AllProducts/AllProducts";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +66,7 @@ const router = createBrowserRouter([
       </PvtRoute>
     ),
     children: [
+      // user routes
       {
         path: "/dashboard/userDashboard",
         element: <UserDashboard></UserDashboard>,
@@ -89,6 +94,63 @@ const router = createBrowserRouter([
       {
         path: "updateProfile",
         element: <Updateprofile></Updateprofile>,
+      },
+      // admin routes
+      {
+        path: "/dashboard/adminDashboard",
+        element: (
+          <AdminRoute>
+            <AdminDashboard></AdminDashboard>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "addProduct",
+        element: (
+          <AdminRoute>
+            <Addproduct></Addproduct>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "allProducts",
+        element: (
+          <AdminRoute>
+            <AllProducts></AllProducts>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "addCategory",
+        element: (
+          <AdminRoute>
+            <AdminDashboard></AdminDashboard>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "orders",
+        element: (
+          <AdminRoute>
+            <AdminDashboard></AdminDashboard>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "allUsers",
+        element: (
+          <AdminRoute>
+            <AdminDashboard></AdminDashboard>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "reviews",
+        element: (
+          <AdminRoute>
+            <AdminDashboard></AdminDashboard>
+          </AdminRoute>
+        ),
       },
     ],
   },

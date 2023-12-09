@@ -4,11 +4,15 @@ import logo from "../../assets/logo.avif";
 import UpperNavbar from "./UpperNavbar";
 import useAuth from "../../hooks/useAuth";
 import useCart from "../../hooks/useCart";
+import useUser from "../../hooks/useUser";
+import Loader from "../shared/Loader";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [cart] = useCart();
   const navigate = useNavigate();
+  const [isUser, isUserLoading] = useUser();
+  const { role } = isUser || {};
   const links = (
     <>
       <li>
@@ -33,6 +37,10 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut().then(navigate("/login")).catch();
   };
+
+  if (isUserLoading) {
+    return <Loader></Loader>;
+  }
 
   return (
     <>
@@ -99,7 +107,11 @@ const Navbar = () => {
                           <li>
                             <Link
                               style={{ textTransform: "capitalize" }}
-                              to="/dashboard/userDashboard"
+                              to={
+                                role === "admin"
+                                  ? "/dashboard/userDashboard"
+                                  : "/dashboard/adminDashboard"
+                              }
                             >
                               Dashboard
                             </Link>
@@ -144,29 +156,31 @@ const Navbar = () => {
                   )}
 
                   {/* -----------cart icon----------------------------- */}
-                  <div
-                    onClick={() => navigate("/dashboard/cart")}
-                    className="indicator mr-2"
-                  >
-                    <span className="indicator-item badge bg-[#f76b6a] text-white top-3 end-0 font-thin cursor-pointer z-0">
-                      {user ? cart.totalQuantity : "0"}
-                    </span>
-                    <button className="px-0 btn shadow-none bg-transparent border-none hover:bg-transparent focus:outline-none">
-                      <svg
-                        version="1.1"
-                        width="30"
-                        height="30"
-                        viewBox="0 0 17 17"
-                        id="svg50"
-                      >
-                        <path
-                          d="m 14.176,12.5 c 0.965,0 1.75,0.785 1.75,1.75 0,0.965 -0.785,1.75 -1.75,1.75 -0.965,0 -1.75,-0.785 -1.75,-1.75 0,-0.965 0.785,-1.75 1.75,-1.75 z m 0,2.5 c 0.414,0 0.75,-0.337 0.75,-0.75 0,-0.413 -0.336,-0.75 -0.75,-0.75 -0.414,0 -0.75,0.337 -0.75,0.75 0,0.413 0.336,0.75 0.75,0.75 z m -8.5,-2.5 c 0.965,0 1.75,0.785 1.75,1.75 0,0.965 -0.785,1.75 -1.75,1.75 -0.965,0 -1.75,-0.785 -1.75,-1.75 0,-0.965 0.785,-1.75 1.75,-1.75 z m 0,2.5 c 0.414,0 0.75,-0.337 0.75,-0.75 0,-0.413 -0.336,-0.75 -0.75,-0.75 -0.414,0 -0.75,0.337 -0.75,0.75 0,0.413 0.336,0.75 0.75,0.75 z M 3.555,2 3.857,4 H 17 l -1.118,8.036 H 3.969 L 2.931,4.573 2.695,3 H -0.074 V 2 Z M 4,5 4.139,6 H 15.713 L 15.852,5 Z M 15.012,11.036 15.573,7 H 4.278 l 0.561,4.036 z"
-                          fill="#000000"
-                          id="path48"
-                        ></path>
-                      </svg>
-                    </button>
-                  </div>
+                  {role !== "admin" && (
+                    <div
+                      onClick={() => navigate("/dashboard/cart")}
+                      className="indicator mr-2"
+                    >
+                      <span className="indicator-item badge bg-[#f76b6a] text-white top-3 end-0 font-thin cursor-pointer z-0">
+                        {user ? cart.totalQuantity : "0"}
+                      </span>
+                      <button className="px-0 btn shadow-none bg-transparent border-none hover:bg-transparent focus:outline-none">
+                        <svg
+                          version="1.1"
+                          width="30"
+                          height="30"
+                          viewBox="0 0 17 17"
+                          id="svg50"
+                        >
+                          <path
+                            d="m 14.176,12.5 c 0.965,0 1.75,0.785 1.75,1.75 0,0.965 -0.785,1.75 -1.75,1.75 -0.965,0 -1.75,-0.785 -1.75,-1.75 0,-0.965 0.785,-1.75 1.75,-1.75 z m 0,2.5 c 0.414,0 0.75,-0.337 0.75,-0.75 0,-0.413 -0.336,-0.75 -0.75,-0.75 -0.414,0 -0.75,0.337 -0.75,0.75 0,0.413 0.336,0.75 0.75,0.75 z m -8.5,-2.5 c 0.965,0 1.75,0.785 1.75,1.75 0,0.965 -0.785,1.75 -1.75,1.75 -0.965,0 -1.75,-0.785 -1.75,-1.75 0,-0.965 0.785,-1.75 1.75,-1.75 z m 0,2.5 c 0.414,0 0.75,-0.337 0.75,-0.75 0,-0.413 -0.336,-0.75 -0.75,-0.75 -0.414,0 -0.75,0.337 -0.75,0.75 0,0.413 0.336,0.75 0.75,0.75 z M 3.555,2 3.857,4 H 17 l -1.118,8.036 H 3.969 L 2.931,4.573 2.695,3 H -0.074 V 2 Z M 4,5 4.139,6 H 15.713 L 15.852,5 Z M 15.012,11.036 15.573,7 H 4.278 l 0.561,4.036 z"
+                            fill="#000000"
+                            id="path48"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

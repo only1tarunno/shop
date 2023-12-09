@@ -3,23 +3,34 @@ import { useState } from "react";
 import logo from "../../assets/logo.avif";
 // Icons
 import { AiOutlineMenu } from "react-icons/ai";
-import { BsGraphUp } from "react-icons/bs";
+import { BsFillCartCheckFill, BsGraphUp } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { FaHouse, FaStar } from "react-icons/fa6";
 import MenuItem from "./MenuItem";
-import { IoCartOutline } from "react-icons/io5";
+import { IoBagAdd, IoCartOutline } from "react-icons/io5";
 import { MdOutlinePayment } from "react-icons/md";
-import { FaUserCircle } from "react-icons/fa";
+import { FaTshirt, FaUserCircle } from "react-icons/fa";
+import { ImUsers } from "react-icons/im";
+import { TbCategoryPlus } from "react-icons/tb";
 import useCart from "../../hooks/useCart";
+import useUser from "../../hooks/useUser";
+import Loader from "../shared/Loader";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(false);
   const [cart] = useCart();
+  const [isUser, isUserLoading] = useUser();
+  const { role } = isUser || {};
 
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
   };
+
+  if (isUserLoading) {
+    return <Loader></Loader>;
+  }
+
   return (
     <>
       {/* Small Screen Navbar */}
@@ -64,31 +75,76 @@ const Sidebar = () => {
 
             <nav>
               {/* user menu  */}
-              <MenuItem
-                label="Dashboard"
-                address="userDashboard"
-                icon={BsGraphUp}
-              ></MenuItem>
+              {role === "admin" ? (
+                <MenuItem
+                  label="Dashboard"
+                  address="adminDashboard"
+                  icon={BsGraphUp}
+                ></MenuItem>
+              ) : (
+                <MenuItem
+                  label="Dashboard"
+                  address="userDashboard"
+                  icon={BsGraphUp}
+                ></MenuItem>
+              )}
               <MenuItem
                 label={`Profile`}
                 address="profile"
                 icon={FaUserCircle}
               ></MenuItem>
-              <MenuItem
-                label={`My Cart(${cart.totalQuantity})`}
-                address="cart"
-                icon={IoCartOutline}
-              ></MenuItem>
-              <MenuItem
-                label={`Payment History`}
-                address="paymentHistory"
-                icon={MdOutlinePayment}
-              ></MenuItem>
-              <MenuItem
-                label={`Rating`}
-                address="starRating"
-                icon={FaStar}
-              ></MenuItem>
+              {role === "admin" ? (
+                <>
+                  <MenuItem
+                    label={`Add product`}
+                    address="addProduct"
+                    icon={IoBagAdd}
+                  ></MenuItem>
+                  <MenuItem
+                    label={`All Products`}
+                    address="allProducts"
+                    icon={FaTshirt}
+                  ></MenuItem>
+                  <MenuItem
+                    label={`Categories`}
+                    address="addCategory"
+                    icon={TbCategoryPlus}
+                  ></MenuItem>
+                  <MenuItem
+                    label={`Orders`}
+                    address="orders"
+                    icon={BsFillCartCheckFill}
+                  ></MenuItem>
+                  <MenuItem
+                    label={`All Users`}
+                    address="allUsers"
+                    icon={ImUsers}
+                  ></MenuItem>
+                  <MenuItem
+                    label={`Reviews`}
+                    address="reviews"
+                    icon={FaStar}
+                  ></MenuItem>
+                </>
+              ) : (
+                <>
+                  <MenuItem
+                    label={`My Cart(${cart.totalQuantity})`}
+                    address="cart"
+                    icon={IoCartOutline}
+                  ></MenuItem>
+                  <MenuItem
+                    label={`Payment History`}
+                    address="paymentHistory"
+                    icon={MdOutlinePayment}
+                  ></MenuItem>
+                  <MenuItem
+                    label={`Rating`}
+                    address="starRating"
+                    icon={FaStar}
+                  ></MenuItem>
+                </>
+              )}
             </nav>
           </div>
         </div>

@@ -2,18 +2,23 @@ import { useQuery } from "@tanstack/react-query";
 import InnerSectiontitle from "../../../../components/Dashboard/InnerSectiontitle";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Loader from "../../../../components/shared/Loader";
 
 const PaymentHistory = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const { data: payments = [] } = useQuery({
+  const { data: payments = [], isLoading } = useQuery({
     queryKey: ["paymentsHistory"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/payments/${user?.email}`);
       return res.data;
     },
   });
+
+  if (isLoading) {
+    return <Loader></Loader>;
+  }
 
   return (
     <div>

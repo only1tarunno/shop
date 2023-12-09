@@ -4,9 +4,10 @@ import CartTableRow from "./CartTableRow";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import InnerSectiontitle from "../../../../components/Dashboard/InnerSectiontitle";
+import Loader from "../../../../components/shared/Loader";
 
 const Cart = () => {
-  const [cart] = useCart();
+  const [cart, , isLoading] = useCart();
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
 
@@ -23,6 +24,10 @@ const Cart = () => {
       });
     }
   };
+
+  if (isLoading) {
+    return <Loader></Loader>;
+  }
 
   return (
     <>
