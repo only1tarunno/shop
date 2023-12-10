@@ -5,13 +5,12 @@ import UpperNavbar from "./UpperNavbar";
 import useAuth from "../../hooks/useAuth";
 import useCart from "../../hooks/useCart";
 import useUser from "../../hooks/useUser";
-import Loader from "../shared/Loader";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const [cart] = useCart();
   const navigate = useNavigate();
-  const [isUser, isUserLoading] = useUser();
+  const [isUser] = useUser();
   const { role } = isUser || {};
   const links = (
     <>
@@ -37,10 +36,6 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut().then(navigate("/login")).catch();
   };
-
-  if (isUserLoading) {
-    return <Loader></Loader>;
-  }
 
   return (
     <>

@@ -3,9 +3,12 @@ import InnerSectiontitle from "../../../../components/Dashboard/InnerSectiontitl
 import Select from "react-select";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
-import { useState } from "react";
 import useCategories from "../../../../hooks/useCategories";
 import Loader from "../../../../components/shared/Loader";
+import { useNavigate, useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../../hooks/useAxiosPublic";
+import { useState } from "react";
 
 const options = [
   { value: "Bag", label: "Bag" },
@@ -15,11 +18,22 @@ const options = [
   { value: "green", label: "green" },
 ];
 
-const Addproduct = () => {
+const UpdateProduct = () => {
+  const { id } = useParams();
+  const axiosPublic = useAxiosPublic();
+  const { data: singleProduct = {}, isLoading } = useQuery({
+    queryKey: ["updateProduct", id],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/products/${id}`);
+      return res?.data?.product;
+    },
+  });
+
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm();
   const axiosSecure = useAxiosSecure();
@@ -39,17 +53,17 @@ const Addproduct = () => {
       availability_count: data?.qunatity,
     };
 
-    await axiosSecure.post("/admin/allProducts", productInfo);
+    await axiosSecure.patch(`/admin/allProducts/${id}`, productInfo);
     Swal.fire({
       icon: "success",
-      title: "Product has been Added",
+      title: "Product has been Updated",
       showConfirmButton: false,
       timer: 1500,
     });
-    reset();
+    navigate(-1);
   };
 
-  if (categoriesLoader) {
+  if (categoriesLoader || isLoading) {
     return <Loader></Loader>;
   }
 
@@ -58,8 +72,8 @@ const Addproduct = () => {
       {" "}
       <div className="py-16">
         <InnerSectiontitle
-          title={"Add A Product"}
-          subtitle={"Fill the form to add products"}
+          title={"Update prtoduct"}
+          subtitle={"Fill the form to update product"}
         ></InnerSectiontitle>
       </div>
       <div>
@@ -74,6 +88,7 @@ const Addproduct = () => {
             <input
               type="text"
               placeholder="Title"
+              defaultValue={singleProduct?.title}
               className="input input-bordered w-full ps-5 h-10 rounded-[3px] focus:outline-none"
               required
               {...register("title")}
@@ -88,6 +103,7 @@ const Addproduct = () => {
                 type="url"
                 placeholder="https://i.ibb.co/CBwpdWy/people-3.png"
                 required
+                defaultValue={singleProduct?.image_url}
                 {...register("image")}
                 className="input input-bordered w-full ps-5 h-10 rounded-[3px] focus:outline-none"
               />
@@ -98,6 +114,7 @@ const Addproduct = () => {
               </label>
               <input
                 type="url"
+                defaultValue={singleProduct?.thumbnail_url}
                 placeholder="https://i.ibb.co/CBwpdWy/people-3.png"
                 required
                 {...register("thumbnail")}
@@ -116,7 +133,7 @@ const Addproduct = () => {
               <select
                 className="input input-bordered w-full uppercase ps-5 h-10 rounded-[3px] focus:outline-none"
                 required
-                defaultValue={"T-Shirts"}
+                defaultValue={singleProduct?.categories}
                 {...register("category", { required: true })}
               >
                 {categories?.map((category) => (
@@ -131,7 +148,6 @@ const Addproduct = () => {
                 <span className="label-text">Tags</span>
               </label>
               <Select
-                defaultValue={selectedOption}
                 onChange={setSelectedOption}
                 options={options}
                 isMulti
@@ -149,6 +165,7 @@ const Addproduct = () => {
               </label>
               <input
                 type="number"
+                defaultValue={singleProduct.price}
                 placeholder="$200"
                 required
                 {...register("price")}
@@ -162,6 +179,7 @@ const Addproduct = () => {
               <input
                 type="number"
                 placeholder="50"
+                defaultValue={singleProduct?.availability_count}
                 required
                 {...register("qunatity")}
                 className="input input-bordered w-full ps-5 h-10 rounded-[3px] focus:outline-none"
@@ -173,6 +191,7 @@ const Addproduct = () => {
               </label>
               <input
                 type="text"
+                defaultValue={singleProduct?.sku}
                 placeholder="sku012456"
                 required
                 {...register("sku")}
@@ -186,6 +205,7 @@ const Addproduct = () => {
               <span className="label-text">Description</span>
             </label>
             <textarea
+              defaultValue={singleProduct?.description}
               className="textarea textarea-bordered h-24 rounded-[3px] focus:outline-none"
               placeholder="Description"
               required
@@ -197,7 +217,7 @@ const Addproduct = () => {
             type="submit"
             className="btn w-full bg-[#f76b6a] border-[#f76b6a] rounded  hover:bg-[#4c5161] hover:border-[#4c5161] text-white font-medium"
           >
-            Add Product
+            Update Product
           </button>
         </form>
       </div>
@@ -205,4 +225,4 @@ const Addproduct = () => {
   );
 };
 
-export default Addproduct;
+export default UpdateProduct;

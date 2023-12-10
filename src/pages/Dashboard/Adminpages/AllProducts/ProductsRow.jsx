@@ -1,9 +1,15 @@
 /* eslint-disable react/prop-types */
-import { FaRegTrashCan } from "react-icons/fa6";
+import { FaRegPenToSquare, FaRegTrashCan } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const ProductsRow = ({ product, handleDelete }) => {
   const { _id, thumbnail_url, title, price, categories, availability_count } =
     product || {};
+  const navigate = useNavigate();
+
+  const handleUpdate = (id) => {
+    navigate(`/dashboard/updateProduct/${id}`);
+  };
   return (
     <tr>
       <td>
@@ -23,10 +29,10 @@ const ProductsRow = ({ product, handleDelete }) => {
 
       <td>
         <button
-          onClick={() => handleDelete(_id)}
-          className="btn rounded btn-sm bg-[#f76b6a] text-white"
+          onClick={() => handleUpdate(_id)}
+          className="btn btn-ghost btn-sm rounded bg-[#dbb63d]"
         >
-          <FaRegTrashCan />
+          <FaRegPenToSquare />
         </button>
       </td>
       <td>
