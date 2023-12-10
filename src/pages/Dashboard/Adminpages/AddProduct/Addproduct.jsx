@@ -31,7 +31,7 @@ const Addproduct = () => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const onSubmit = async (data) => {
-    const articleInfo = {
+    const productInfo = {
       title: data?.title,
       image_url: data?.image,
       thumbnail_url: data?.thumbnail,
@@ -43,15 +43,14 @@ const Addproduct = () => {
       availability_count: data?.qunatity,
     };
 
-    console.log(articleInfo);
-    // await axiosSecure.post("/allArticles", articleInfo);
-    // Swal.fire({
-    //   icon: "success",
-    //   title: "Article is Pendind",
-    //   showConfirmButton: false,
-    //   timer: 1500,
-    // });
-    // reset();
+    await axiosSecure.post("/admin/allProducts", productInfo);
+    Swal.fire({
+      icon: "success",
+      title: "Product has been Added",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    reset();
   };
 
   if (categoriesLoader) {
