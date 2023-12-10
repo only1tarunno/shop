@@ -58,11 +58,14 @@ const Addproduct = () => {
   }
 
   return (
-    <div className="py-16">
-      <InnerSectiontitle
-        title={"Add A Product"}
-        subtitle={"Fill the form to add products"}
-      ></InnerSectiontitle>
+    <>
+      {" "}
+      <div className="py-16">
+        <InnerSectiontitle
+          title={"Add A Product"}
+          subtitle={"Fill the form to add products"}
+        ></InnerSectiontitle>
+      </div>
       <div>
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -202,7 +205,7 @@ const Addproduct = () => {
           </button>
         </form>
       </div>
-    </div>
+    </>
   );
 };
 
