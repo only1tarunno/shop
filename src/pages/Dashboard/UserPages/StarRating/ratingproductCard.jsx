@@ -30,6 +30,8 @@ const RatingproductCard = ({ product }) => {
     e.preventDefault();
 
     const review = {
+      reviewtitle: title,
+      reviewProductImage: thumbnail_url,
       name: user.displayName,
       product_id: _id,
       value: rating,
@@ -56,9 +58,11 @@ const RatingproductCard = ({ product }) => {
   return (
     <>
       <div className="card lg:card-side bg-base-100  shadow-xl">
-        <figure className="w-full  lg:w-1/3">
-          <img src={thumbnail_url} className="w-full h-full" alt={title} />
-        </figure>
+        <img
+          src={thumbnail_url}
+          className="w-full h-full lg:w-[235px] object-cover"
+          alt={title}
+        />
         <div className="card-body justify-center">
           <h2 className="card-title">{title}</h2>
 

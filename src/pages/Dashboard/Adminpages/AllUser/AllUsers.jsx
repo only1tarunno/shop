@@ -13,11 +13,11 @@ const AllUsers = () => {
   const numberOfpages = Math.ceil(count / 5);
   const pages = [...Array(numberOfpages).keys()];
   const {
-    data: Users = [],
+    data: allUsers = [],
     status,
     refetch,
   } = useQuery({
-    queryKey: ["AdminAllProductsManage"],
+    queryKey: ["AdminAllProductsManage", currentPage],
     queryFn: async () => {
       const res = await axiosSecure.get(
         `/admin/allUsers?page=${currentPage}&size=5`
@@ -26,7 +26,6 @@ const AllUsers = () => {
       return res.data.result;
     },
   });
-  console.log(Users);
 
   // pagination
 
@@ -91,43 +90,44 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {Users?.map((user) => (
-              <tr key={user?._id}>
-                <td>
-                  <div className="flex justify-center items-center gap-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle w-12 h-12">
-                        <img src={user?.image} alt="" />
+            {allUsers.length &&
+              allUsers?.map((user) => (
+                <tr key={user?._id}>
+                  <td>
+                    <div className="flex justify-center items-center gap-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle w-12 h-12">
+                          <img src={user?.image} alt="" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </td>
-                <td>{user?.name}</td>
-                <td>{user?.email}</td>
-                <td>
-                  {user?.role === "admin" ? (
-                    <span className="font-bold text-green-400">Admin</span>
-                  ) : user?.role === "reseller" ? (
-                    <span className="font-bold text-[#0352e3]">Reseller</span>
-                  ) : (
-                    <>
-                      <button
-                        onClick={() => handlemakeReseller(user)}
-                        className="btn btn-sm rounded"
-                      >
-                        Make Reseller
-                      </button>
-                      <br />
-                      {user?.role === "resellerRequest" && (
-                        <span className="font-bold text-[#0352e3]">
-                          Requested for Reseller
-                        </span>
-                      )}
-                    </>
-                  )}
-                </td>
-              </tr>
-            ))}
+                  </td>
+                  <td>{user?.name}</td>
+                  <td>{user?.email}</td>
+                  <td>
+                    {user?.role === "admin" ? (
+                      <span className="font-bold text-green-400">Admin</span>
+                    ) : user?.role === "reseller" ? (
+                      <span className="font-bold text-[#0352e3]">Reseller</span>
+                    ) : (
+                      <>
+                        <button
+                          onClick={() => handlemakeReseller(user)}
+                          className="btn btn-sm rounded"
+                        >
+                          Make Reseller
+                        </button>
+                        <br />
+                        {user?.role === "resellerRequest" && (
+                          <span className="font-bold text-[#0352e3]">
+                            Requested for Reseller
+                          </span>
+                        )}
+                      </>
+                    )}
+                  </td>
+                </tr>
+              ))}
           </tbody>
           {/* foot */}
           <tfoot>

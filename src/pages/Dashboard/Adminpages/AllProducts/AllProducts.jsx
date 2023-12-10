@@ -18,7 +18,7 @@ const AllProducts = () => {
     status,
     refetch,
   } = useQuery({
-    queryKey: ["AdminAllProductsManage"],
+    queryKey: ["AdminAllProductsManage", currentPage],
     queryFn: async () => {
       const res = await axiosSecure.get(
         `/admin/allProducts?page=${currentPage}&size=6`

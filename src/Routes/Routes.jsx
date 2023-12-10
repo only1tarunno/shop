@@ -23,6 +23,7 @@ import Addproduct from "../pages/Dashboard/Adminpages/AddProduct/Addproduct";
 import AllProducts from "../pages/Dashboard/Adminpages/AllProducts/AllProducts";
 import UpdateProduct from "../pages/Dashboard/Adminpages/Updateproduct/UpdateProduct";
 import AllUsers from "../pages/Dashboard/Adminpages/AllUser/AllUsers";
+import Allreviews from "../pages/Dashboard/Adminpages/Reviews/Allreviews";
 
 const router = createBrowserRouter([
   {
@@ -158,7 +159,7 @@ const router = createBrowserRouter([
         path: "reviews",
         element: (
           <AdminRoute>
-            <AdminDashboard></AdminDashboard>
+            <Allreviews></Allreviews>
           </AdminRoute>
         ),
       },

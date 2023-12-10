@@ -38,7 +38,7 @@ const ProductsRow = ({ product, handleDelete }) => {
       <td>
         <button
           onClick={() => handleDelete(_id)}
-          className="btn rounded btn-sm bg-[#f76b6a] text-white"
+          className="btn rounded btn-sm bg-[#f76b6a] text-white hover:text-black"
         >
           <FaRegTrashCan />
         </button>
