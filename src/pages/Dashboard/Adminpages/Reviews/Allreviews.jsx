@@ -56,7 +56,7 @@ const Allreviews = () => {
       <div className="pt-16">
         <InnerSectiontitle
           title={"Manage Reviews"}
-          subtitle={"Explore and manage all reviews in one place:"}
+          subtitle={"Explore and manage all reviews in one place"}
         ></InnerSectiontitle>
       </div>
       <div className="overflow-x-auto py-16">
