@@ -46,13 +46,13 @@ const UpdateProduct = () => {
       image_url: data?.image,
       thumbnail_url: data?.thumbnail,
       categories: data?.category,
-      tags: selectedOption?.map(({ value }) => value),
+      tags: selectedOption?.map(({ value }) => value) || singleProduct?.tags,
       description: data?.description,
       price: data?.price,
+      reseller_price: data?.reseller_price,
       sku: data?.sku,
       availability_count: data?.qunatity,
     };
-
     await axiosSecure.patch(`/admin/allProducts/${id}`, productInfo);
     Swal.fire({
       icon: "success",
@@ -66,7 +66,6 @@ const UpdateProduct = () => {
   if (categoriesLoader || isLoading) {
     return <Loader></Loader>;
   }
-
   return (
     <>
       {" "}
@@ -151,7 +150,6 @@ const UpdateProduct = () => {
                 onChange={setSelectedOption}
                 options={options}
                 isMulti
-                required
                 className="basic-multi-select"
                 classNamePrefix="select"
               />
@@ -159,20 +157,33 @@ const UpdateProduct = () => {
           </div>
 
           <div className="flex items-center flex-col md:flex-row justify-between w-full">
-            <div className="form-control w-full md:w-[32%]">
+            <div className="form-control w-full md:w-[24%]">
               <label className="label">
                 <span className="label-text">Price</span>
               </label>
               <input
                 type="number"
-                defaultValue={singleProduct.price}
+                defaultValue={singleProduct?.price}
                 placeholder="$200"
                 required
                 {...register("price")}
                 className="input input-bordered w-full ps-5 h-10 rounded-[3px] focus:outline-none"
               />
             </div>
-            <div className="form-control w-full md:w-[32%]">
+            <div className="form-control w-full md:w-[24%]">
+              <label className="label">
+                <span className="label-text">Reseller Price</span>
+              </label>
+              <input
+                type="number"
+                defaultValue={singleProduct?.reseller_price}
+                placeholder="$150"
+                required
+                {...register("reseller_price")}
+                className="input input-bordered w-full ps-5 h-10 rounded-[3px] focus:outline-none"
+              />
+            </div>
+            <div className="form-control w-full md:w-[24%]">
               <label className="label">
                 <span className="label-text">Quantity</span>
               </label>
@@ -185,7 +196,7 @@ const UpdateProduct = () => {
                 className="input input-bordered w-full ps-5 h-10 rounded-[3px] focus:outline-none"
               />
             </div>
-            <div className="form-control w-full md:w-[32%]">
+            <div className="form-control w-full md:w-[24%]">
               <label className="label">
                 <span className="label-text">SKU</span>
               </label>

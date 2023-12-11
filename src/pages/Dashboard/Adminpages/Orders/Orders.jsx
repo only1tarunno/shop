@@ -6,11 +6,7 @@ import OrdertableRow from "./OrdertableRow";
 
 const Orders = () => {
   const axiosSecure = useAxiosSecure();
-  const {
-    data: orders = [],
-    refetch,
-    isLoading,
-  } = useQuery({
+  const { data: orders = [], isLoading } = useQuery({
     queryKey: ["allOrders"],
     queryFn: async () => {
       const res = await axiosSecure.get("/orders");

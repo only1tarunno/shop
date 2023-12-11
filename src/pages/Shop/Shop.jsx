@@ -8,6 +8,7 @@ import Loader from "../../components/shared/Loader";
 import FeaturedImage from "../../components/shared/FeaturedImage";
 import { Link } from "react-router-dom";
 import useCategories from "../../hooks/useCategories";
+import useUser from "../../hooks/useUser";
 
 const Shop = () => {
   const [search, setSearch] = useState("");
@@ -18,6 +19,7 @@ const Shop = () => {
   const [lottieload, setLootieLoad] = useState(false);
   const axiosPublic = useAxiosPublic();
   const [categories, categoriesLoader] = useCategories();
+  const [isUser, isUserLoading] = useUser();
 
   const {
     data: products = [],
@@ -88,7 +90,7 @@ const Shop = () => {
     });
   }, [lottieload]);
 
-  if (isLoading && categoriesLoader) {
+  if (isLoading || categoriesLoader || isUserLoading) {
     return <Loader></Loader>;
   }
 
@@ -176,13 +178,24 @@ const Shop = () => {
                         ></FeaturedImage>
                         <div className="text-[#333] pt-2">
                           <h4>{product?.title}</h4>
-                          <p>$ {product?.price}</p>
+                          <p>
+                            ${" "}
+                            {isUser.role === "reseller" ? (
+                              <>
+                                <s>{product?.price}.00</s>{" "}
+                                {product?.reseller_price}
+                              </>
+                            ) : (
+                              product?.price
+                            )}
+                            .00
+                          </p>
                         </div>
                       </Link>
                     </div>
                   ))
                 ) : (
-                  <div className="pb-14  lg:col-span-2">
+                  <div className="pb-14  lg:col-span-4">
                     {!lottieload && (
                       <>
                         <div className="w-80 mx-auto" ref={animation}></div>

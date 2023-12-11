@@ -15,6 +15,7 @@ import Swal from "sweetalert2";
 import useCart from "../../hooks/useCart";
 import useProducts from "../../hooks/useProducts";
 import useSingleCartProduct from "../../hooks/useSingleCartProduct";
+import useUser from "../../hooks/useUser";
 
 const ProductDetail = () => {
   const { user } = useAuth();
@@ -23,7 +24,7 @@ const ProductDetail = () => {
   const location = useLocation();
   const [, refetch] = useCart();
   const [quantity, setQuantity] = useState(1);
-
+  const [isUser, isUserLoading] = useUser();
   const { id } = useParams();
   const [product, isLoading] = useProducts(id);
   const [singleCart, singlecartRefect] = useSingleCartProduct(id);
@@ -46,14 +47,18 @@ const ProductDetail = () => {
   const handleAddToCart = (product) => {
     // check login
     if (user && user?.email) {
-      const { _id, price, ...item } = product;
+      const { _id, price, reseller_price, ...item } = product;
       const cartItem = {
         menuId: _id,
         quantity,
-        totalPrice: parseFloat((price * quantity).toFixed(2)),
+        totalPrice:
+          isUser?.role === "reseller"
+            ? reseller_price * quantity
+            : price * quantity,
         email: user.email,
         ...item,
       };
+
       // alert on added product
       const addToCartSuccess = () => {
         Swal.fire({
@@ -112,7 +117,7 @@ const ProductDetail = () => {
     }
   };
 
-  if (isLoading) {
+  if (isLoading || isUserLoading) {
     return <Loader></Loader>;
   }
 
@@ -152,7 +157,16 @@ const ProductDetail = () => {
               {product?.product?.title}
             </h2>
             <p className="font-bold text-2xl text-[#000]">
-              $ {product?.product?.price}
+              ${" "}
+              {isUser.role === "reseller" ? (
+                <>
+                  <s>{product?.product?.price}.00</s>{" "}
+                  {product?.product?.reseller_price}
+                </>
+              ) : (
+                product?.product?.price
+              )}
+              .00
             </p>
             {/* average review  */}
             <div className="flex items-center gap-2">

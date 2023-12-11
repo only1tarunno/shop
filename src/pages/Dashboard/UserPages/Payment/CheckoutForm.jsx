@@ -75,9 +75,7 @@ const CheckoutForm = () => {
     if (confirmError) {
       console.log("confirm errro", confirmError);
     } else {
-      console.log("sxucess", paymentIntent);
       if (paymentIntent.status === "succeeded") {
-        console.log("trans id", paymentIntent.id);
         setTransactionId(paymentIntent.id);
 
         // now save the panent in database
