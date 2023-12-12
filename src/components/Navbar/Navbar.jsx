@@ -104,8 +104,8 @@ const Navbar = () => {
                               style={{ textTransform: "capitalize" }}
                               to={
                                 role === "admin"
-                                  ? "/dashboard/userDashboard"
-                                  : "/dashboard/adminDashboard"
+                                  ? "/dashboard/adminDashboard"
+                                  : "/dashboard/userDashboard"
                               }
                             >
                               Dashboard
