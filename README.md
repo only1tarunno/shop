@@ -37,13 +37,14 @@
 
 <h4>Admin:</h4>
 <ul>
-    <li>The admin can add products and set two prices: one for normal users and another for reseller users.</li>
-    <li>The admin can view, update, delete, and manage stock for all products.</li>
-    <li>The admin has the ability to add and delete categories.</li>
-    <li>The admin can view all orders made by customers and update their status to "in progress" or "complete."</li>
-    <li>The admin can access a dashboard displaying all users and also view requests from users seeking to become resellers.</li>
-    <li>The admin can designate users as resellers.</li>
-    <li>The admin has access to view all reviews and associated star ratings on the reviews page, with the ability to delete reviews.</li>
+    <li>Admin can view order statistics through pie and bar charts displaying product sales on the dashboard page</li>
+    <li>Admin can add products and set two prices: one for normal users and another for reseller users.</li>
+    <li>Admin can view, update, delete, and manage stock for all products.</li>
+    <li>Admin has the ability to add and delete categories.</li>
+    <li>Admin can view all orders made by customers and update their status to "in progress" or "complete."</li>
+    <li>Admin can access a dashboard displaying all users and also view requests from users seeking to become resellers.</li>
+    <li>Admin can designate users as resellers.</li>
+    <li>Admin has access to view all reviews and associated star ratings on the reviews page, with the ability to delete reviews.</li>
     <li>Pagination is implemented on all product pages within the admin dashboard and on all user pages.</li>
 </ul>
 
