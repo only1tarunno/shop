@@ -39,8 +39,6 @@ const UserDashboard = () => {
     }
   };
 
-  // chart related options
-
   if (isUserLoading || userActivityLoading) {
     return <Loader></Loader>;
   }

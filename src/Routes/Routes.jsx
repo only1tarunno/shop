@@ -25,6 +25,7 @@ import UpdateProduct from "../pages/Dashboard/Adminpages/Updateproduct/UpdatePro
 import AllUsers from "../pages/Dashboard/Adminpages/AllUser/AllUsers";
 import Allreviews from "../pages/Dashboard/Adminpages/Reviews/Allreviews";
 import Orders from "../pages/Dashboard/Adminpages/Orders/Orders";
+import Categories from "../pages/Dashboard/Adminpages/Categories/Categories";
 
 const router = createBrowserRouter([
   {
@@ -136,7 +137,7 @@ const router = createBrowserRouter([
         path: "addCategory",
         element: (
           <AdminRoute>
-            <AdminDashboard></AdminDashboard>
+            <Categories></Categories>
           </AdminRoute>
         ),
       },
