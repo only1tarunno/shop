@@ -4,7 +4,7 @@ import img from "../../../../assets/categoryimg.png";
 /* eslint-disable react/prop-types */
 const CategoryTable = ({ categories, handleDelete }) => {
   return (
-    <div className="overflow-x-auto py-16">
+    <div className="overflow-x-auto py-8">
       <table className="table rounded overflow-hidden text-center">
         {/* head */}
         <thead className="bg-[#cccccc] text-black">
