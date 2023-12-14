@@ -12,12 +12,12 @@ const Categories = () => {
 
   const handleAddcategory = async (e) => {
     e.preventDefault();
-    const publisherInfo = {
-      category: e.target.value.name,
-      catImage: e.target.value.photo,
+    const categoryInfo = {
+      category: e.target.name.value,
+      catImage: e.target.photo.value || "null",
     };
 
-    const res = await axiosSecure.post(`/publisher`, publisherInfo);
+    const res = await axiosSecure.post(`/categories`, categoryInfo);
     console.log(res);
     if (res.data._id) {
       Swal.fire({
@@ -27,7 +27,7 @@ const Categories = () => {
         timer: 1500,
       });
       catFetch();
-      e.reset();
+      e.target.reset();
     }
   };
 

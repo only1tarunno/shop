@@ -4,9 +4,7 @@ const AddCategory = ({ handleAddcategory }) => {
     <form className="py-8 px-0 lg:px-5" onSubmit={handleAddcategory}>
       <div className="space-y-4">
         <div>
-          <label htmlFor="email" className="block mb-2 text-sm">
-            Category Name
-          </label>
+          <label className="block mb-2 text-sm">Category Name</label>
           <input
             type="text"
             name="name"
@@ -17,14 +15,11 @@ const AddCategory = ({ handleAddcategory }) => {
           />
         </div>
         <div>
-          <label htmlFor="email" className="block mb-2 text-sm">
-            Category Logo URL
-          </label>
+          <label className="block mb-2 text-sm">Category Logo URL</label>
           <input
             type="url"
             name="photo"
             placeholder="Category Logo URL"
-            required
             className="w-full px-3 py-2 border rounded-md border-[#f76b6a] focus:outline-[#f76b6a] text-gray-900"
             data-temp-mail-org="0"
           />
