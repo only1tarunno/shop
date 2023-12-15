@@ -18,7 +18,6 @@ const Categories = () => {
     };
 
     const res = await axiosSecure.post(`/categories`, categoryInfo);
-    console.log(res);
     if (res.data._id) {
       Swal.fire({
         icon: "success",
@@ -31,8 +30,17 @@ const Categories = () => {
     }
   };
 
-  const handleDelete = (id) => {
-    console.log(id);
+  const handleDelete = async (id) => {
+    const res = await axiosSecure.delete(`/categories/${id}`);
+    if (res.data.deletedCount) {
+      Swal.fire({
+        icon: "success",
+        title: "Category has been delete",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      catFetch();
+    }
   };
 
   if (categoriesLoader) {
