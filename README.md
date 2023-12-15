@@ -35,6 +35,12 @@
     <li>Users can request to become a Reseller from the dashboard.</li>
 </ul>
 
+<h4>Reseller:</h4>
+<ul>
+    <li>Resellers get a lower price on every product compared to normal users.</li>
+    <li>Resellers can not give reviews after buying a product, while normal users can give reviews.</li>
+</ul>
+
 <h4>Admin:</h4>
 <ul>
     <li>Admin can view order statistics through pie and bar charts displaying product sales on the dashboard page</li>
