@@ -30,6 +30,11 @@ const Navbar = () => {
       <li>
         <NavLink to="/faq">FAQ</NavLink>
       </li>
+      {role === "admin" && (
+        <li>
+          <NavLink to="/dashboard/adminDashboard">Dashboard</NavLink>
+        </li>
+      )}
     </>
   );
 
@@ -105,7 +110,9 @@ const Navbar = () => {
                               to={
                                 role === "admin"
                                   ? "/dashboard/adminDashboard"
-                                  : "/dashboard/userDashboard"
+                                  : role === "admin"
+                                  ? "/dashboard/userDashboard"
+                                  : "/dashboard/resellerDashboard"
                               }
                             >
                               Dashboard

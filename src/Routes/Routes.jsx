@@ -26,6 +26,7 @@ import AllUsers from "../pages/Dashboard/Adminpages/AllUser/AllUsers";
 import Allreviews from "../pages/Dashboard/Adminpages/Reviews/Allreviews";
 import Orders from "../pages/Dashboard/Adminpages/Orders/Orders";
 import Categories from "../pages/Dashboard/Adminpages/Categories/Categories";
+import ResellerDashboard from "../pages/Dashboard/Resellerpages/ResellerDashboard";
 
 const router = createBrowserRouter([
   {
@@ -99,6 +100,11 @@ const router = createBrowserRouter([
       {
         path: "updateProfile",
         element: <Updateprofile></Updateprofile>,
+      },
+      // reseller
+      {
+        path: "/dashboard/resellerDashboard",
+        element: <ResellerDashboard></ResellerDashboard>,
       },
       // admin routes
       {
