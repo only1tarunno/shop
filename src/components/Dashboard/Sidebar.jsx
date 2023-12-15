@@ -129,7 +129,7 @@ const Sidebar = () => {
               ) : (
                 <>
                   <MenuItem
-                    label={`My Cart(${cart.totalQuantity})`}
+                    label={`My Cart(${cart.length})`}
                     address="cart"
                     icon={IoCartOutline}
                   ></MenuItem>
@@ -138,11 +138,13 @@ const Sidebar = () => {
                     address="paymentHistory"
                     icon={MdOutlinePayment}
                   ></MenuItem>
-                  <MenuItem
-                    label={`Rating`}
-                    address="starRating"
-                    icon={FaStar}
-                  ></MenuItem>
+                  {role === "user" && (
+                    <MenuItem
+                      label={`Rating`}
+                      address="starRating"
+                      icon={FaStar}
+                    ></MenuItem>
+                  )}
                 </>
               )}
             </nav>

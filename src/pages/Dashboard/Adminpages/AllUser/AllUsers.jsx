@@ -53,7 +53,7 @@ const AllUsers = () => {
       `/admin/userUpdate/${user?.email}`,
       userInfo
     );
-    console.log(res.data);
+
     if (res.data.modifiedCount > 0) {
       refetch();
       Swal.fire({

@@ -17,7 +17,7 @@ const CheckoutForm = () => {
   const { user } = useAuth();
   const [cart, refetch] = useCart();
 
-  const totalPrice = cart.cartProducts
+  const totalPrice = cart
     .reduce((sum, item) => sum + item.totalPrice, 0)
     .toFixed(2);
   useEffect(() => {
