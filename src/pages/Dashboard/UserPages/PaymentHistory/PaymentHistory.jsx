@@ -29,9 +29,6 @@ const PaymentHistory = () => {
         ></InnerSectiontitle>
       </div>
       <div className="pt-10">
-        <div className="flex justify-between pb-8">
-          <h2 className="text-2xl">Total Items: 0</h2>
-        </div>
         <div>
           <div className="overflow-x-auto">
             <table className="table text-center">

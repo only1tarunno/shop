@@ -39,13 +39,15 @@ const Cart = () => {
       </div>
       <div className="pt-10">
         <div className="flex justify-between pb-8">
-          <h2 className="text-2xl">Total Items: {cart.length}</h2>
+          <h2 className="text-2xl">Total Items: {cart.totalQuantity}</h2>
           <h2 className="text-2xl">
             Total Price: $
-            {cart?.reduce((sum, item) => sum + item.totalPrice, 0).toFixed(2)}
+            {cart?.cartProducts
+              ?.reduce((sum, item) => sum + item.totalPrice, 0)
+              .toFixed(2)}
           </h2>
           <div>
-            {cart?.length ? (
+            {cart?.cartProducts?.length ? (
               <button
                 onClick={handlePay}
                 className="btn bg-[#f76b6a] border-[#f76b6a] px-8 rounded  hover:bg-[#4c5161] hover:border-[#4c5161] text-white font-medium uppercase"
@@ -76,8 +78,8 @@ const Cart = () => {
                 </tr>
               </thead>
               <tbody>
-                {cart?.length > 0 ? (
-                  cart?.map((product, index) => (
+                {cart?.cartProducts?.length > 0 ? (
+                  cart?.cartProducts?.map((product, index) => (
                     <CartTableRow
                       key={product._id}
                       productData={product}
