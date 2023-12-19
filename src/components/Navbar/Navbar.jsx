@@ -110,9 +110,9 @@ const Navbar = () => {
                               to={
                                 role === "admin"
                                   ? "/dashboard/adminDashboard"
-                                  : role === "admin"
-                                  ? "/dashboard/userDashboard"
-                                  : "/dashboard/resellerDashboard"
+                                  : role === "reseller"
+                                  ? "/dashboard/resellerDashboard"
+                                  : "/dashboard/userDashboard"
                               }
                             >
                               Dashboard

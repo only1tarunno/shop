@@ -81,6 +81,12 @@ const Sidebar = () => {
                   address="adminDashboard"
                   icon={BsGraphUp}
                 ></MenuItem>
+              ) : role === "reseller" ? (
+                <MenuItem
+                  label="Dashboard"
+                  address="resellerDashboard"
+                  icon={BsGraphUp}
+                ></MenuItem>
               ) : (
                 <MenuItem
                   label="Dashboard"
